@@ -1,0 +1,33 @@
+.in-dev-stage {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .in-dev-stage-container {
+    width: 800px;
+    height: 450px;
+    background-color: ivory;
+    box-shadow: var(--base-shadow);
+    border: 3px solid var(--base-border);
+    margin: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .in-dev-stage-container > p {
+    color: #756b4b;
+    font-size: 18px;
+    margin: 20px;
+    font-weight: bold;
+  }
+   
+  .in-dev-stage-image {
+    width: 400px;
+    border: 3px solid var(--base-border);
+    box-shadow: var(--base-shadow);
+    margin: 15px;
+  }
+  
