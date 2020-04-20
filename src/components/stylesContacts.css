@@ -1,0 +1,54 @@
+.contactstext {
+  width: 100%;
+}
+
+.contactstext > p {
+  font-family: var(--base-font);
+  color: #564743;
+  font-size: 20px;
+  margin-left: 50px;
+}
+
+.addresses {
+  margin: 20px;
+  display: grid;
+  grid-template-columns: 340px 130px 1fr;
+  gap: 4px;
+}
+
+.addresses > * {
+  border: 2px double var(--base-border);
+  box-shadow: var(--base-shadow);
+  background-color: ivory;
+}
+
+.address {
+  font-size: 17px;
+  font-family: var(--base-font);
+  color: #564743;
+  margin: 15px;
+  line-height: 25px;
+}
+
+.address > span {
+  font-size: 25px;
+  color: #fd7209;
+}
+
+.work-time {
+  font-size: 16px;
+  font-family: var(--base-font);
+  color: #564743;
+  margin: 18px;
+  line-height: 25px;
+}
+
+.address-map {
+  margin: 15px 10px;
+  height: 350px;
+}
+
+.Map-container {
+  height: 100%;
+  width: 100%;
+}
