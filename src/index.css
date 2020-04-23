@@ -20,9 +20,3 @@ code {
   --base-shadow: -2px 4px 7px rgba(164, 139, 113, 0.25);
   --base-shadow-border: -1px 1px 8px rgba(169, 169, 169, 0.25), 0px 0px 0px 3px #6282AD;
 }
-
-/* :root {
-  --base-blue-light: rgba(11, 109, 180, 0.4);
-  --base-shodow: -1px 1px 8px rgba(169, 169, 169, 0.25);
-  
-} */

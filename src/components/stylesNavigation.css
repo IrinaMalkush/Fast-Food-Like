@@ -3,6 +3,19 @@
   position: sticky;
   top: 0;
   z-index: 999;
+  background: linear-gradient(to right, #eda516, #e77f11);
+  box-shadow: var(--base-shadow);
+}
+
+.navigationmenu [type="checkbox"] {
+  display: none;
+}
+
+.toggle-menu {
+  display: none;
+  cursor: pointer;
+  position: relative;
+  height: 30px;
 }
 
 .toright {
@@ -16,7 +29,7 @@
 }
 
 .trapezoid {
-  width: 110px;
+  width: 120px;
   height: 0px;
   border-bottom: 45px solid #edd6a2;
   border-left: 30px solid transparent;
@@ -45,7 +58,6 @@
   height: 100%;
   margin: 0;
   padding: 0;
-  background: linear-gradient(to right, #eda516, #e77f11);
 }
 
 .menu-links > li {
@@ -78,7 +90,7 @@
   text-shadow: none;
 }
 
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 1080px) {
   .trapezoid {
     width: 80px;
   }
@@ -87,11 +99,10 @@
 @media screen and (max-width: 768px) {
   .navigationmenu {
     height: 30px;
-    top: 140px;
   }
 
   .trapezoid {
-    width: 70px;
+    width: 68px;
     border-bottom: 30px solid #edd6a2;
     border-left: 19px solid transparent;
     border-right: 19px solid transparent;
@@ -99,41 +110,75 @@
 
   .menu-button {
     line-height: 30px;
-    font-size: 12px;
+    font-size: 13px;
   }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 480px) {
   .navigationmenu {
-    height: 25px;
-    top: 100px;
+    height: 30px;
+    border-top: 1px solid #f4c91c;
+    border-bottom: 1px solid #f4c91c;
+  }
+
+  .toggle-menu {
+    display: block;
+  }
+
+  .toggle-menu > svg {
+    position: absolute;
+    top: 3px;
+    left: 15px;
+  }
+
+  .toggle {
+    margin: 0;
+  }
+
+  .toggle:checked ~ ul {
+    display: block;
+  }
+
+  .toright {
+    transform: none;
+  }
+
+  .straight-right {
+    transform: none;
   }
 
   .trapezoid {
-    width: 40px;
-    border-bottom: 25px solid #edd6a2;
-    border-left: 16px solid transparent;
-    border-right: 16px solid transparent;
+    width: auto;
+    height: auto;
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+  }
+
+  .toleft {
+    transform: none;
+  }
+
+  .straight-left {
+    transform: none;
+  }
+
+  .menu-links {
+    display: none;
+  }
+
+  .menu-links > li {
+    padding: 0;
+    margin: 0 10px;
+    width: 220px;
+    border: 1px double #e77f11;
+    box-shadow: var(--base-shadow);
+    border-radius: 4px;
   }
 
   .menu-button {
-    line-height: 25px;
-    font-size: 9px;
-  }
-}
-
-@media screen and (max-width: 320px) {
-  .navigationmenu {
-    height: 25px;
-    top: 80px;
-  }
-
-  .trapezoid {
-    border-bottom: 25px solid #edd6a2;
-  }
-
-  .menu-button {
-    line-height: 25px;
-    font-size: 8px;
+    line-height: 35px;
+    padding: 0;
+    font-size: 15px;
   }
 }

@@ -43,8 +43,6 @@ export function PageFooter() {
                 </div>
                 <div className="footer-links-menu">
                    <a href="https://www.instagram.com/like_pmr/" className="footer-links"><img src="/img/instabw.png" alt="inastagram-link"></img><p className="footer-link-name">- Instagram</p></a>
-                   <a href="https://www.facebook.com/" className="footer-links"><img src="/img/fbbw.png" alt="facebook-link"></img><p className="footer-link-name">- Facebook</p></a>
-                   <a href="https://vk.com/" className="footer-links"><img src="/img/vkbw.png" alt="vk-link"></img><p className="footer-link-name">- VKontakte</p></a>
                 </div>
                 <div className="footer-addresses">
                     <p>&#x1F44D; Ул.Суворова (возле школы бокса)</p>

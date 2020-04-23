@@ -58,8 +58,8 @@ export function MainPage() {
         <GetCurrentPhoto>
           <img src={currentPhoto.photo} alt="bunner" />
         </GetCurrentPhoto>
-      </div>
-      <div>{RenderIndicators()}</div>
+        <div>{RenderIndicators()}</div>
+      </div>      
       <p className="news-title">Новости Fast Food Like</p>
       <NewsFeed />
     </div>

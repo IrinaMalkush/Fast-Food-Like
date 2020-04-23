@@ -10,7 +10,7 @@
     background-color: ivory;
     box-shadow: var(--base-shadow);
     border: 3px solid var(--base-border);
-    margin: 30px;
+    margin: 30px 30px 200px 30px;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -31,3 +31,40 @@
     margin: 15px;
   }
   
+  @media screen and (max-width: 768px) {
+    .in-dev-stage-container {
+      width: 600px;
+      height: 500px;
+      flex-direction: column;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .in-dev-stage-container {
+      width: 400px;
+      height: 460px;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+     
+    .in-dev-stage-image {
+      width: 300px;
+    }
+  }
+  
+  @media screen and (max-width: 320px) {
+    .in-dev-stage-container {
+      width: 284px;
+      height: 350px;
+      margin: 20px 15px 100px 15px;
+    }
+
+    .in-dev-stage-container > p {
+      font-size: 15px;
+      margin: 10px;
+    }
+     
+    .in-dev-stage-image {
+      width: 260px;
+    }
+  }

@@ -10,7 +10,7 @@
   background-color: ivory;
   box-shadow: var(--base-shadow);
   border: 3px solid var(--base-border);
-  margin: 30px;
+  margin: 30px 30px 100px 30px;
   padding: 25px;
   position: relative;
 }
@@ -41,4 +41,69 @@
   right: 25px;
   border: 3px solid var(--base-border);
   box-shadow: var(--base-shadow);
+}
+
+@media screen and (max-width: 768px) {
+  .delivery-container {
+    width: 668px;
+    height: 300px;
+    margin: 30px 20px 100px 20px;
+    padding: 25px;
+  }
+
+  .delivery-discount {
+    margin: 15px;
+  }
+
+  .delivery-image {
+    width: 300px;
+    top: 20px;
+    right: 20px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .delivery-container {
+    width: 390px;
+    height: 630px;
+    margin: 30px 15px 80px 15px;
+    padding: 25px;
+  }
+
+  .delivery-discount {
+    margin: 15px;
+  }
+
+  .delivery-image {
+    width: 360px;
+    top: 300px;
+    right: 38px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .delivery-container {
+    width: 284px;
+    height: 530px;
+    margin: 30px 5px 50px 5px;
+    padding: 10px;
+  }
+
+  .delivery-discount {
+    margin: 15px;
+  }
+
+  .delivery-container > * {
+    font-size: 15px;
+  }
+  
+  .delivery-container > :first-child {
+    font-size: 17px;
+  }
+
+  .delivery-image {
+    width: 274px;
+    top: 240px;
+    right: 12px;
+  }
 }

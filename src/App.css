@@ -8,13 +8,13 @@
 
 .layout {
   display: grid;
-  width: 1150px;
+  width: 1280px;
 }
 
 .mainpart {
   background-color: #f2efdc;
   box-sizing: content-box;
-  min-height: 500px;
+  min-height: 600px;
 }
 
 .notFound {
@@ -35,26 +35,62 @@
   height: 430px;
 }
 
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 1080px) {
   .layout {
-    width: 780px;
+    width: 900px;
   }
 }
 
 @media screen and (max-width: 768px) {
   .layout {
-    width: 95%;
+    width: 100%;
   }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 480px) {
   .layout {
-    width: 98%;
+    width: 100%;
+  }
+
+  .notFound {
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 35px;
+  }
+  
+  .notFound > p {
+    margin: 15px;
+    padding-top: 0px;
+    font-size: 20px;
+    text-align: right;
+  }
+  
+  .notFound > img {
+    width: 244px;
+    height: 417px;
+    margin-left: 15px;
   }
 }
 
 @media screen and (max-width: 320px) {
   .layout {
-    width: 100%;
+    width: 320px;
+  }
+
+  .notFound {
+    margin-top: 20px;
+  }
+  
+  .notFound > p {
+    margin: 15px;
+    padding-top: 0px;
+    font-size: 17px;
+    text-align: right;
+  }
+  
+  .notFound > img {
+    width: 163px;
+    height: 278px;
+    margin-left: 15px;
   }
 }

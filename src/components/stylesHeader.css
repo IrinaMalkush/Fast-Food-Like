@@ -1,6 +1,7 @@
 .header {
   background: linear-gradient(to bottom right, #f4ca1c, #e77e11);
   height: 170px;
+  width: 100%;
 }
 
 .header-conteiner {
@@ -14,7 +15,7 @@
   font-family: var(--base-font);
   font-size: 25px;
   color: var(--base-white);
-  width: 180px;
+  width: 200px;
 }
 
 .header-conteiner > a {
@@ -27,64 +28,76 @@
   border-radius: 8px;
 }
 
-.header-conteiner > nav {
-  margin: 5px 16px 0 5px;
-  width: 150px;
-}
-
 .social-links {
   list-style: none;
   display: flex;
   flex-direction: row;
-  margin: 0;
   padding: 0;
+  margin: 8px 16px 8px 16px;
+  width: 200px;
+}
+
+.link-text {
+  font-family: var(--base-font);
+  font-size: 15px;
+  color: var(--base-white);
+  margin: 14px 6px 4px 0;
+  text-transform: uppercase;
 }
 
 .icon-link {
-  height: 40px;
-  margin: 5px;
+  height: 36px;
+  margin: 0 5px;
+}
+
+@media screen and (max-width: 1080px) {
 }
 
 @media screen and (max-width: 768px) {
   .header {
-    height: 140px;
+    height: 150px;
   }
 
   .header-conteiner > p {
     margin: 8px 10px 8px 10px;
     font-size: 20px;
-    width: 130px;
+    width: 150px;
   }
 
-.header-conteiner > a {
-  height: 140px;
-  width: 140px;
-}
+  .header-conteiner > a {
+    height: 150px;
+    width: 150px;
+  }
 
   .header-conteiner > a > img {
-    height: 140px;
+    height: 150px;
   }
 
-  .header-conteiner > nav {
+  .social-links {
     margin: 5px 10px 0 5px;
-    width: 130px;
+    width: 160px;
+  }
+
+  .link-text {
+    font-size: 12px;
+    margin: 12px 4px 0 0;
   }
 
   .icon-link {
     height: 35px;
-    margin: 5px;
+    margin: 2px;
   }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 480px) {
   .header {
     height: 100px;
   }
 
   .header-conteiner > p {
-    margin: 5px 4px 5px 4px;
+    margin: 0 4px 5px 14px;
     font-size: 15px;
-    width: 95px;
+    width: 130px;
   }
 
   .header-conteiner > a {
@@ -96,9 +109,15 @@
     height: 100px;
   }
 
-  .header-conteiner > nav {
-    margin: 5px 4px 0 4px;
-    width: 95px;
+  .social-links {
+    margin: 0 0 0 4px;
+    width: 144px;
+  }
+
+  .link-text {
+    font-size: 15px;
+    margin: 10px 2px 0 0;
+    text-transform: lowercase;
   }
 
   .icon-link {
@@ -113,9 +132,8 @@
   }
 
   .header-conteiner > p {
-    margin: 5px 3px 5px 3px;
-    font-size: 15px;
-    width: 85px;
+    margin: 5px 5px 5px 10px;
+    width: 110px;
   }
 
   .header-conteiner > a {
@@ -125,17 +143,21 @@
 
   .header-conteiner > a > img {
     height: 80px;
+    margin: 0;
   }
 
-  .header-conteiner > nav {
-    margin: 5px 3px 0 5px;
-    width: 85px;
-    align-self: flex-end;
-    justify-self: right;
+  .social-links {
+    margin: 5px 10px 0 3px;
+    width: 90px;
+    justify-content: flex-end;
+  }
+
+  .link-text {
+    display: none;
   }
 
   .icon-link {
-    height: 20px;
-    margin: 3px;
+    height: 25px;
+    margin: 0 5px;
   }
 }

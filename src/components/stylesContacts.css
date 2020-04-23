@@ -1,5 +1,6 @@
 .contactstext {
   width: 100%;
+  margin-bottom: 100px;
 }
 
 .contactstext > p {
@@ -45,10 +46,47 @@
 
 .address-map {
   margin: 15px 10px;
-  height: 350px;
+  height: 420px;
 }
 
 .Map-container {
   height: 100%;
   width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+  .addresses {
+    margin: 10px;
+    display: grid;
+    grid-template-columns: 270px 130px 1fr;
+  }
+
+  .address-map {
+    margin: 12px 10px;
+    height: 350px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .addresses {
+    margin: 10px;
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .address-map {
+    margin: 10px 10px;
+    height: 420px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .addresses {
+    margin: 6px;
+  }
+
+  .address-map {
+    margin: 5px 5px;
+    height: 290px;
+  }
 }
