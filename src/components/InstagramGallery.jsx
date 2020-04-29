@@ -43,8 +43,8 @@ export default class extends Component {
       <div className="photos">
         {this.state.photos &&
           this.state.photos.map(({ src, url }) => (
-            <a href={url} target="_blank">
-              <img className="photo" src={src} />
+            <a href={url} target="_blank" rel="noopener noreferrer">
+              <img className="photo" src={src} alt="from-instagram" />
             </a>
           ))}
       </div>

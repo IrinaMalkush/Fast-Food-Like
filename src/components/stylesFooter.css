@@ -29,7 +29,7 @@
 }
 
 .footer-addresses {
-  margin: 5px 80px;
+  margin: 5px 20px;
   width: 352px;
 }
 
@@ -41,7 +41,7 @@
 }
 
 .footer-phone {
-  margin: 5px 80px;
+  margin: 5px 20px;
   width: 352px;
   display: flex;
   align-items: center;
@@ -63,7 +63,7 @@
   display: flex;
   flex-direction: row;
   text-decoration: none;
-  margin: 0 10px;
+  margin: 0 30px;
 }
 
 .footer-links > img {
@@ -76,6 +76,7 @@
   color: #948865;
   margin: 5px;
   font-size: 16px;
+  width: 85px;
 }
 
 .footer > div {
@@ -93,13 +94,21 @@
 
 @media screen and (max-width: 1080px) {
   .footer-addresses {
-    margin: 5px 20px;
-    width: 340px;
+    margin: 5px 10px;
+    width: 290px;
+  }
+
+  .footer-links {
+    margin: 0 0 0 10px;
   }
 
   .footer-phone {
-    margin: 5px 20px;
-    width: 340px;
+    margin: 5px 10px;
+    width: 290px;
+  }
+
+  .footer-phone > p {
+    margin: 0;
   }
 }
 
@@ -159,13 +168,23 @@
   }
 }
 
+@media screen and (max-width: 542px) {
+  .footer-menu > li > a {
+    font-size: 14px;
+  }
+  
+  .footer-menu > li > span {
+    margin: 0 3px;
+  }
+}
+
 @media screen and (max-width: 480px) {
   .footer-menu > li > a {
-    font-size: 15px;
+    font-size: 13px;
   }
 
   .footer-menu > li > span {
-    margin: 0 5px;
+    margin: 0 2px;
   }
 
   .footer-contacts {
@@ -219,7 +238,7 @@
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 392px) {
   .footer-menu {
     display: none;
   }

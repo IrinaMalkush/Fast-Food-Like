@@ -35,7 +35,7 @@ export function MainPage() {
       <div className="indicators">
         {promotionslist.map((element) => {
           return (
-            <button
+            <button key={element.id}
               className={
                 currentPhotoIndex === element.id
                   ? "indicator is-current"

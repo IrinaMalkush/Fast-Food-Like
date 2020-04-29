@@ -8,7 +8,7 @@
 
 .layout {
   display: grid;
-  width: 1280px;
+  width: 1200px;
 }
 
 .mainpart {
@@ -43,13 +43,13 @@
 
 @media screen and (max-width: 768px) {
   .layout {
-    width: 100%;
+    width: 100vw;
   }
 }
 
 @media screen and (max-width: 480px) {
   .layout {
-    width: 100%;
+    width: 100vw;
   }
 
   .notFound {

@@ -42,7 +42,7 @@ export function FullImage({itemslist, backPath}) {
     <div className="big-image-background">
       <div className="show-big-image">
         <a href={backPath}><span>&#10008;</span></a>
-        <img src={itemslist[indx].fullimage} />
+        <img src={itemslist[indx].fullimage} alt={itemslist[indx].name} />
       </div>
     </div>
 );

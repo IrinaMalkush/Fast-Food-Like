@@ -56,6 +56,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   height: 100%;
+  overflow: hidden;
   margin: 0;
   padding: 0;
 }
@@ -114,7 +115,13 @@
   }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 654px) {
+  .menu-button {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 630px) {
   .navigationmenu {
     height: 30px;
     border-top: 1px solid #f4c91c;

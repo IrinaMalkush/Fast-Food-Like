@@ -45,8 +45,8 @@ export function PageFooter() {
                    <a href="https://www.instagram.com/like_pmr/" className="footer-links"><img src="/img/instabw.png" alt="inastagram-link"></img><p className="footer-link-name">- Instagram</p></a>
                 </div>
                 <div className="footer-addresses">
-                    <p>&#x1F44D; Ул.Суворова (возле школы бокса)</p>
-                    <p>&#x1F44D; Центральный рынок, "синяя крыша", бутик #3</p>
+                    <p><span role="img" aria-label="like">&#x1F44D;</span> Ул.Суворова (возле школы бокса)</p>
+                    <p><span role="img" aria-label="like">&#x1F44D;</span> Центральный рынок, "синяя крыша", бутик #3</p>
                 </div>
             </div>
            <p className="copyright">2018-2020 &copy; Fast Food Like</p>

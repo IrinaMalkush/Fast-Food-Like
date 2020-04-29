@@ -16,7 +16,7 @@ export function NavigationMenu() {
     <Router>
       <nav className="navigationmenu">
         <input type="checkbox" id="menu" className="toggle" />
-        <label for="menu" className="toggle-menu">
+        <label htmlFor="menu" className="toggle-menu">
             <svg width="24.999999999999996" height="24.999999999999996" xmlns="http://www.w3.org/2000/svg">
               <title/>
               <desc/>

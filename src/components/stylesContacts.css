@@ -13,8 +13,33 @@
 .addresses {
   margin: 20px;
   display: grid;
-  grid-template-columns: 340px 130px 1fr;
+  grid-template-areas: "firstaddress firsttime firstmap" "secondaddress secondtime secondmap";
+  grid-template-columns: 335px 130px 1fr;
   gap: 4px;
+}
+
+.address1 {
+  grid-area: firstaddress;
+}
+
+.worktime1 {
+  grid-area: firsttime;
+}
+
+.map1 {
+  grid-area: firstmap;
+}
+
+.address2 {
+  grid-area: secondaddress;
+}
+
+.worktime2 {
+  grid-area: secondtime;
+}
+
+.map2 {
+  grid-area: secondmap;
 }
 
 .addresses > * {
@@ -42,6 +67,7 @@
   color: #564743;
   margin: 18px;
   line-height: 25px;
+  text-align: center;
 }
 
 .address-map {
@@ -54,11 +80,22 @@
   width: 100%;
 }
 
+@media screen and (max-width: 1080px) {
+  .addresses {
+    margin: 15px;
+    grid-template-areas:
+      "firstaddress firsttime"
+      "firstmap firstmap"
+      "secondaddress secondtime"
+      "secondmap secondmap";
+    grid-template-columns: 1fr 200px;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .addresses {
     margin: 10px;
-    display: grid;
-    grid-template-columns: 270px 130px 1fr;
+    grid-template-columns: 1fr 140px;
   }
 
   .address-map {
@@ -69,8 +106,12 @@
 
 @media screen and (max-width: 480px) {
   .addresses {
-    margin: 10px;
-    display: grid;
+    margin: 5px;
+    grid-template-areas:
+      "firstaddress" "firsttime"
+      "firstmap"
+      "secondaddress" "secondtime"
+      "secondmap";
     grid-template-columns: 1fr;
   }
 

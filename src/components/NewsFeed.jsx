@@ -6,7 +6,7 @@ export function NewsFeed() {
     <div>
       {newsList.sort( (a,b) =>b.id-a.id).map((element) => {
         return (
-          <div  className="content">
+          <div  className="content" key={element.id}>
             <div className="news-image">
               <img src={element.image} alt="news"></img>
             </div>

@@ -89,7 +89,7 @@
   }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 512px) {
   .header {
     height: 100px;
   }
@@ -123,6 +123,23 @@
   .icon-link {
     height: 25px;
     margin: 4px;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  .social-links {
+    margin: 5px 10px 0 3px;
+    width: 60px;
+    justify-content: flex-end;
+  }
+  
+  .link-text {
+    display: none;
+  }
+
+  .header-conteiner > p {
+    margin: 5px 5px 5px 10px;
+    width: 105px;
   }
 }
 
