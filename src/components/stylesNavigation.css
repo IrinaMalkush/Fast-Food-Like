@@ -172,6 +172,7 @@
 
   .menu-links {
     display: none;
+    overflow: unset;
   }
 
   .menu-links > li {
