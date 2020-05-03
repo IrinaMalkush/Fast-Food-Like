@@ -1,16 +1,25 @@
 import React from "react";
-import "./InDevStage.css";
+import { newsList } from "./NewsList";
+import "./stylesEvents.css";
 
 export function Events() {
   return (
-    <div className="in-dev-stage">
-      <div className="in-dev-stage-container">
-        <p>Страница находится в разработке</p>
-        <img
-          src="/img/inwork.jpg"
-          alt="the-page-is-in-development-stage"
-          className="in-dev-stage-image"
-        ></img>
+    <div className="promotion-container">
+      <div>
+      {newsList.map((element) => {
+        if (Boolean(element.promotion) == true) { 
+        return (
+          <div  className="promotion-content" key={element.id}>
+            <div className="promotion-image">
+              <img src={element.image} alt="prom"></img>
+            </div>
+            <div className="prom-text-date">
+              <p>{element.new}</p>
+              <p>{element.dateofnew}</p>
+            </div>
+          </div>
+        );}
+      })}
       </div>
     </div>
   );

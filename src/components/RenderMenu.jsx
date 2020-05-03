@@ -16,7 +16,7 @@ export function RenderMenu({ menuitemslist }) {
           <div className="prices">
             {element.pricelist.map((item) => (
               <div className="price">
-                <p>{item.pricename} - </p>
+                <p>{item.pricename} </p>
                 <p>{item.price}</p>
               </div>
             ))}
