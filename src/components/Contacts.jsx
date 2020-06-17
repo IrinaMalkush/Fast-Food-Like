@@ -13,7 +13,7 @@ export function Contacts() {
           </p>
         </div>
         <div className="worktime1">
-          <p className="work-time">10:00 - 2:00</p>
+          <p className="work-time">9:00 - 2:00</p>
         </div>
         <div className="map1">
           <AddressOnMap Xcoord={46.822167680023256} Ycoord={29.483098566886962} />

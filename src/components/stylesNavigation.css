@@ -162,6 +162,10 @@
     border-right: none;
   }
 
+  .trapezoid:hover {
+    border-bottom: 0;
+  }
+
   .toleft {
     transform: none;
   }

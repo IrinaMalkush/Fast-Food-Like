@@ -15,15 +15,17 @@ export const foodList = [
     ],
   },
   {
-    id: "1_kebab",
-    image: "/img/menuimages/kebab.png",
-    fullimage: "/img/menuimages/kebabmini.png",
-    name: "люля-кебаб",
-    description: "лаваш, люля-кебаб, капуста, морковь по-корейски, помидор, огурец, белый соус",
+    id: "1_hot-dog",
+    image: "/img/menuimages/hotdog.jpg",
+    fullimage: "/img/menuimages/hotdogmini.jpg",
+    name: "хот-дог",
+    description: "булочка, сосиска (мясо), соус",
     pricelist: [
-      { pricename: "люля-кебаб 1шт, средний вес: 260г", price: "30 руб" },
-      { pricename: "люля-кебаб 2шт, средний вес: 350г", price: "38 руб" },
-      { pricename: "люля-кебаб 3шт, средний вес: 450г", price: "48 руб" },
+      { pricename: "студенческий (сосиска куриная, морковь по-корейски)", price: "13 руб" },
+      { pricename: "классический (сосиска свинина/курица, морковь по-корейски)", price: "17 руб" },
+      { pricename: "французский (копчёная мясная сосиска)", price: "18 руб" },
+      { pricename: "с мясом (рубленное куриное мясо, помидор)", price: "18 руб" },
+      { pricename: "с мититеей (мититея, помидор)", price: "18 руб" },
     ],
   },
   {
@@ -38,17 +40,15 @@ export const foodList = [
     ],
   },
   {
-    id: "3_hot-dog",
-    image: "/img/menuimages/hotdog.jpg",
-    fullimage: "/img/menuimages/hotdogmini.jpg",
-    name: "хот-дог",
-    description: "булочка, сосиска (мясо), соус",
+    id: "3_kebab",
+    image: "/img/menuimages/kebab.png",
+    fullimage: "/img/menuimages/kebabmini.png",
+    name: "люля-кебаб",
+    description: "лаваш, люля-кебаб, капуста, морковь по-корейски, помидор, огурец, белый соус",
     pricelist: [
-      { pricename: "студенческий (сосиска куриная, морковь по-корейски)", price: "13 руб" },
-      { pricename: "классический (сосиска свинина/курица, морковь по-корейски)", price: "17 руб" },
-      { pricename: "французский (копчёная мясная сосиска)", price: "18 руб" },
-      { pricename: "с мясом (рубленное куриное мясо, помидор)", price: "18 руб" },
-      { pricename: "с мититеей (мититея, помидор)", price: "18 руб" },
+      { pricename: "люля-кебаб 1шт, средний вес: 260г", price: "30 руб" },
+      { pricename: "люля-кебаб 2шт, средний вес: 350г", price: "38 руб" },
+      { pricename: "люля-кебаб 3шт, средний вес: 450г", price: "48 руб" },
     ],
   },
   {
@@ -70,7 +70,7 @@ export const foodList = [
     pricelist: [{ pricename: "", price: "25 руб" }],
   },
   {
-    id: "6_cheesebutger",
+    id: "6_cheeseburger",
     image: "/img/menuimages/cheeseburger.jpg",
     fullimage: "/img/menuimages/cheeseburgermini.jpg",
     name: "чизбургер",
@@ -79,7 +79,16 @@ export const foodList = [
     pricelist: [{ pricename: "", price: "30 руб" }],
   },
   {
-    id: "7_bigburger",
+    id: "7_crabsburger",
+    image: "/img/menuimages/crabsburger.jpg",
+    fullimage: "/img/menuimages/crabsburgermini.jpg",
+    name: "крабсбургер",
+    description:
+      "булочка с кунжутом, рыбная котлета, салатный лист, сыр, свежие помидоры, медово-горчичный соус, белый соус, соленые огурцы",
+    pricelist: [{ pricename: "", price: "26 руб" }],
+  },
+  {
+    id: "8_bigburger",
     image: "/img/menuimages/bigburger.jpg",
     fullimage: "/img/menuimages/bigburgermini.jpg",
     name: "бигбургер",
@@ -87,7 +96,7 @@ export const foodList = [
     pricelist: [{ pricename: "", price: "45 руб" }],
   },
   {
-    id: "8_frenchfry",
+    id: "9_frenchfry",
     image: "/img/menuimages/frenchfry.jpg",
     fullimage: "/img/menuimages/frenchfrymini.jpg",
     name: "картофель фри",
@@ -98,7 +107,7 @@ export const foodList = [
     ],
   },
   {
-    id: "9_nuggets",
+    id: "10_nuggets",
     image: "/img/menuimages/chickenwings.jpg",
     fullimage: "/img/menuimages/chickenwingsmini.jpg",
     name: "наггетсы",
@@ -212,7 +221,15 @@ export const drinksList = [
     fullimage: "/img/menuimages/mojitomini.jpg",
     name: "мохито",
     description: "мята, лайм, спрайт, тростниковый сахар, лед",
-    pricelist: [{ pricename: "", price: "16 руб" }],
+    pricelist: [{ pricename: "", price: "17 руб" }],
+  },
+  {
+    id: "5_colafanta",
+    image: "/img/menuimages/colafanta.jpg",
+    fullimage: "/img/menuimages/colafantamini.jpg",
+    name: "Кола, Фанта, Спрайт",
+    description: "Газированный напиток, лед",
+    pricelist: [{ pricename: "стакан 0,5л", price: "12 руб" }],
   },
 ];
 
