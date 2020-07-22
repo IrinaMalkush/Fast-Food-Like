@@ -7,7 +7,7 @@ export function Events() {
     <div className="promotion-container">
       <div>
       {newsList.map((element) => {
-        if (Boolean(element.promotion) == true) { 
+        if (Boolean(element.promotion)) { 
         return (
           <div  className="promotion-content" key={element.id}>
             <div className="promotion-image">
