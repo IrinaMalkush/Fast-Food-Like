@@ -1,3 +1,23 @@
-# https://www.robotstxt.org/robotstxt.html
+Sitemap: https://like.oneis.ru/sitemap.xml
+
 User-agent: *
 Disallow:
+
+User-agent: Yandex
+Allow: /
+
+User-agent: Yandex
+Disallow: /comments
+
+User-agent: Google
+Allow: /
+
+User-agent: Google
+Disallow: /comments
+
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot
+Disallow: /comments
