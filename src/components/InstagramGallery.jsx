@@ -16,7 +16,7 @@ export default class extends Component {
       const photos = data.user.edge_owner_to_timeline_media.edges.map(
         ({ node }) => {
           const { id } = node;
-          const caption = node.edge_media_to_caption.edges[0].node.text;
+          const caption = node.edge_media_to_caption.edges[0] === undefined ? "" : node.edge_media_to_caption.edges[0].node.text;
           const thumbnail = node.thumbnail_resources.find(
             thumbnail => thumbnail.config_width === this.props.thumbnailWidth
           );
@@ -42,9 +42,9 @@ export default class extends Component {
     return (
       <div className="photos">
         {this.state.photos &&
-          this.state.photos.map(({ src, url }) => (
-            <a href={url} target="_blank" rel="noopener noreferrer">
-              <img className="photo" src={src} alt="from-instagram" />
+          this.state.photos.map(({ id, src, url }) => (
+            <a key={id} href={url} target="_blank">
+              <img className="photo" src={src} />
             </a>
           ))}
       </div>
