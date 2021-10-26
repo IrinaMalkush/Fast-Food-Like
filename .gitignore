@@ -1,6 +1,8 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
+/.idea
+/.vscode
 /node_modules
 /.pnp
 .pnp.js
@@ -24,3 +26,5 @@ yarn-error.log*
 public/logo512.png
 public/logo192.png
 src/logo.svg
+/.eslintcache
+.eslintcache
