@@ -1,0 +1,137 @@
+.contactstext {
+  width: 100%;
+  margin-bottom: 100px;
+  padding-top: 20px;
+}
+
+.contactstext > p {
+  font-family: var(--base-font);
+  color: #564743;
+  font-size: 20px;
+  margin-left: 50px;
+  margin-top: 0;
+}
+
+.addresses {
+  margin: 20px;
+  display: grid;
+  grid-template-areas:
+    "firstaddress firsttime firstmap"
+    "secondaddress secondtime secondmap";
+  grid-template-columns: 335px 130px 1fr;
+  gap: 4px;
+}
+
+.address1 {
+  grid-area: firstaddress;
+}
+
+.worktime1 {
+  grid-area: firsttime;
+}
+
+.map1 {
+  grid-area: firstmap;
+}
+
+.address2 {
+  grid-area: secondaddress;
+}
+
+.worktime2 {
+  grid-area: secondtime;
+}
+
+.map2 {
+  grid-area: secondmap;
+}
+
+.addresses > * {
+  border: 2px double var(--base-border);
+  box-shadow: var(--base-shadow);
+  background-color: ivory;
+}
+
+.address {
+  font-size: 17px;
+  font-family: var(--base-font);
+  color: #564743;
+  margin: 15px;
+  line-height: 25px;
+}
+
+.address > span {
+  font-size: 25px;
+  color: #fd7209;
+}
+
+.work-time {
+  font-size: 16px;
+  font-family: var(--base-font);
+  color: #564743;
+  margin: 18px;
+  line-height: 25px;
+  text-align: center;
+}
+
+.address-map {
+  margin: 15px 10px;
+  height: 420px;
+}
+
+.Map-container {
+  height: 100%;
+  width: 100%;
+}
+
+@media screen and (max-width: 1080px) {
+  .addresses {
+    margin: 15px;
+    grid-template-areas:
+      "firstaddress firsttime"
+      "firstmap firstmap"
+      "secondaddress secondtime"
+      "secondmap secondmap";
+    grid-template-columns: 1fr 200px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .addresses {
+    margin: 10px;
+    grid-template-columns: 1fr 140px;
+  }
+
+  .address-map {
+    margin: 12px 10px;
+    height: 350px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .addresses {
+    margin: 5px;
+    grid-template-areas:
+      "firstaddress" "firsttime"
+      "firstmap"
+      "secondaddress" "secondtime"
+      "secondmap";
+    grid-template-columns: 1fr;
+  }
+
+  .address-map {
+    margin: 10px 10px;
+    height: 420px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .addresses {
+    margin: 6px;
+  }
+
+  .address-map {
+    margin: 5px 5px;
+    height: 290px;
+  }
+}

@@ -1,96 +1,96 @@
 .App {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-image: url(main-background.jpg);
-  background-color: #f8ecdb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url(main-background.jpg);
+    background-color: #f8ecdb;
 }
 
 .layout {
-  display: grid;
-  width: 1200px;
+    display: grid;
+    width: 1200px;
 }
 
 .mainpart {
-  background-color: #f2efdc;
-  box-sizing: content-box;
-  min-height: 600px;
+    background-color: #f2efdc;
+    box-sizing: content-box;
+    min-height: 600px;
 }
 
 .notFound {
-  display: flex;
-  justify-content: center;
-  margin-top: 35px;
+    display: flex;
+    justify-content: center;
+    margin-top: 35px;
 }
 
 .notFound > p {
-  margin: 45px;
-  padding-top: 60px;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  color: #574d32;
-  font-size: 20px;
+    margin: 45px;
+    padding-top: 60px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: #574d32;
+    font-size: 20px;
 }
 
 .notFound > img {
-  height: 430px;
+    height: 430px;
 }
 
 @media screen and (max-width: 1080px) {
-  .layout {
-    width: 900px;
-  }
+    .layout {
+        width: 900px;
+    }
 }
 
 @media screen and (max-width: 768px) {
-  .layout {
-    width: 100vw;
-  }
+    .layout {
+        width: 100vw;
+    }
 }
 
 @media screen and (max-width: 480px) {
-  .layout {
-    width: 100vw;
-  }
+    .layout {
+        width: 100vw;
+    }
 
-  .notFound {
-    flex-direction: column;
-    justify-content: center;
-    margin-top: 35px;
-  }
-  
-  .notFound > p {
-    margin: 15px;
-    padding-top: 0px;
-    font-size: 20px;
-    text-align: right;
-  }
-  
-  .notFound > img {
-    width: 244px;
-    height: 417px;
-    margin-left: 15px;
-  }
+    .notFound {
+        flex-direction: column;
+        justify-content: center;
+        margin-top: 35px;
+    }
+
+    .notFound > p {
+        margin: 15px;
+        padding-top: 0;
+        font-size: 20px;
+        text-align: right;
+    }
+
+    .notFound > img {
+        width: 244px;
+        height: 417px;
+        margin-left: 15px;
+    }
 }
 
 @media screen and (max-width: 320px) {
-  .layout {
-    width: 320px;
-  }
+    .layout {
+        width: 320px;
+    }
 
-  .notFound {
-    margin-top: 20px;
-  }
-  
-  .notFound > p {
-    margin: 15px;
-    padding-top: 0px;
-    font-size: 17px;
-    text-align: right;
-  }
-  
-  .notFound > img {
-    width: 163px;
-    height: 278px;
-    margin-left: 15px;
-  }
+    .notFound {
+        margin-top: 20px;
+    }
+
+    .notFound > p {
+        margin: 15px;
+        padding-top: 0;
+        font-size: 17px;
+        text-align: right;
+    }
+
+    .notFound > img {
+        width: 163px;
+        height: 278px;
+        margin-left: 15px;
+    }
 }
