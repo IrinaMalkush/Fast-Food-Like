@@ -1,0 +1,17 @@
+.orange-theme {
+    --base-font: Arial, Helvetica, sans-serif;
+    --base-white: #fff;
+    --base-black: #1F1F1F;
+    --base-border: #E1E1E1;
+    --base-shadow: -2px 4px 7px rgba(164, 139, 113, 0.25);
+    --base-shadow-border: -1px 1px 8px rgba(169, 169, 169, 0.25), 0px 0px 0px 3px #6282AD;
+}
+
+.green-theme {
+    --base-font: Arial, Helvetica, sans-serif;
+    --base-white: #fafff0;
+    --base-black: #212321;
+    --base-border: #3ca132;
+    --base-shadow: -2px 4px 7px rgba(164, 139, 113, 0.25);
+    --base-shadow-border: -1px 1px 8px rgba(169, 169, 169, 0.25), 0px 0px 0px 3px #569442;
+}

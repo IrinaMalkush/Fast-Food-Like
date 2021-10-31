@@ -1,0 +1,60 @@
+.App {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url(main-background.jpg);
+    background-color: #f8ecdb;
+}
+
+.layout {
+    display: grid;
+    width: 1200px;
+}
+
+.header {
+    background: linear-gradient(to bottom right, #f4ca1c, #e77e11);
+    height: 170px;
+    width: 100%;
+}
+
+.footer {
+    background-color: #edd6a2;
+}
+
+@media screen and (max-width: 1080px) {
+    .layout {
+        width: 900px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .layout {
+        width: 100vw;
+    }
+
+    .header {
+        height: 150px;
+    }
+}
+
+@media screen and (max-width: 512px) {
+    .header {
+        height: 100px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .layout {
+        width: 100vw;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .layout {
+        width: 320px;
+    }
+
+    .header {
+        height: 80px;
+    }
+}

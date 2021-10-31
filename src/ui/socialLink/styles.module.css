@@ -1,0 +1,25 @@
+.iconLink {
+    height: 36px;
+    margin: 0 5px;
+}
+
+@media screen and (max-width: 768px) {
+    .iconLink {
+        height: 35px;
+        margin: 2px;
+    }
+}
+
+@media screen and (max-width: 512px) {
+    .iconLink {
+        height: 25px;
+        margin: 4px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .iconLink {
+        height: 25px;
+        margin: 0 5px;
+    }
+}

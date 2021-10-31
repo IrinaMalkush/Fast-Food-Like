@@ -4,7 +4,7 @@ import { useAppDispatch, useAppSelector } from "../../core/hooks/Hooks";
 import { menuPartsSelector } from "../../modules/menuParts/MenuPartsSelector";
 import { fetchMenuParts } from "../../modules/menuParts/FetchMenuPartsThunk";
 import { MenuContent } from "./components/MenuContent";
-import "./stylesMenu.css";
+import styles from "./styles.module.css";
 
 export function Menu(): React.ReactElement {
   const dispatch = useAppDispatch();
@@ -20,17 +20,17 @@ export function Menu(): React.ReactElement {
   };
 
   return (
-    <div className="menu-container">
-      <div className="sub-menu">
-        <ul className="sub-menu-links">
+    <div className={styles.menuContainer}>
+      <div className={styles.subMenu}>
+        <ul className={styles.subMenuLinks}>
           {menuTabsList.items.map((item) => (
-            <li onClick={() => changeCurrentMenuTab(item.listname)}>
-              <div className="sub-menu-button">{item.partname}</div>
+            <li onClick={() => changeCurrentMenuTab(item.listname)} key={item.id}>
+              <div className={styles.subMenuButton}>{item.partname}</div>
             </li>
           ))}
         </ul>
       </div>
-      <div className="sub-menu-items">
+      <div className={styles.subMenuItems}>
         <MenuContent listName={currentMenuTab} />
       </div>
     </div>

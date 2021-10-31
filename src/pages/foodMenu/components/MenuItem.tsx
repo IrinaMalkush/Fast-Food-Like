@@ -1,32 +1,29 @@
 import * as React from "react";
-import { Link } from "react-router-dom";
 import { IMenuItem } from "../../../api/types/IMenu";
+import { useState } from "react";
+import { Modal } from "../../../ui/modal/Modal";
+import styles from "../styles.module.css";
 
 interface MenuItemProps {
   element: IMenuItem;
-  url: string;
 }
 
-export function MenuItem({ element, url }: MenuItemProps): React.ReactElement {
+export function MenuItem({ element }: MenuItemProps): React.ReactElement {
+  const [open, setOpen] = useState<boolean>(false);
+
   return (
-    <div className="menu-item">
-      <Link to={`${url}/${element.id}`}>
-        <img
-          className="menu-item-image"
-          src={element.image}
-          alt={element.name}
-        />
-      </Link>
-      <p className="menu-item-name">{element.name}</p>
-      <p className="menu-item-description">{element.description}</p>
-      <div className="prices">
-        {element.pricelist.map((item) => (
-          <div className="price">
-            <p>{item.pricename} </p>
-            <p>{item.price}</p>
-          </div>
-        ))}
+    <>
+      <div className={styles.menuItem} onClick={() => setOpen(!open)}>
+        <div className={styles.smallImage}>
+          <img src={element.image} alt={element.name} />
+        </div>
+        <p className={styles.itemName}>{element.name}</p>
+        <div className={styles.price}>
+          {element.pricelist.length > 1 ? "от " : ""}
+          {element.pricelist[0].price}
+        </div>
       </div>
-    </div>
+      <Modal isOpen={open} onClose={() => setOpen(false)} element={element} />
+    </>
   );
 }

@@ -1,0 +1,129 @@
+.menuContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.subMenu {
+  margin: 4px 0;
+  width: 600px;
+}
+
+.subMenuLinks {
+  list-style: none;
+  align-self: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+.subMenuButton {
+  display: block;
+  text-align: center;
+  line-height: 35px;
+  font-family: var(--base-font);
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: var(--base-white);
+  text-shadow: 0 0 3px #fe6d02;
+  background-color: #f4c91c;
+  border-radius: 5px;
+  border: 4px double rgb(209, 217, 228);
+  text-decoration: none;
+  box-sizing: border-box;
+  margin: 2px;
+  cursor: pointer;
+}
+
+.subMenuItems {
+  box-sizing: border-box;
+  width: 90%;
+  margin: 25px 10px 40px 10px;
+  justify-items: center;
+}
+
+.menuItemsContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(234px, 234px));
+  grid-gap: 20px;
+  justify-content: center;
+  width: 100%;
+}
+
+.menuItem {
+  background-color: ivory;
+  box-shadow: var(--base-shadow);
+  border-radius: 6px;
+  border: 2px solid var(--base-border);
+  width: 214px;
+  padding: 10px;
+  box-sizing: content-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
+.smallImage {
+  width: 210px;
+  height: 210px;
+  border: 1px double #fccb77;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.smallImage > img {
+  max-width: 100%;
+}
+
+.itemName {
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #003873CC;
+  margin: 6px 0 0 0;
+  text-align: center;
+}
+
+.price {
+  margin: 8px;
+  min-width: 54px;
+  color: #e77f11;
+  font-size: 15px;
+  font-family: var(--base-font);
+  font-weight: bold;
+  line-height: 18px;
+}
+
+@media screen and (max-width: 618px) {
+  .subMenu {
+    width: 400px;
+  }
+
+  .subMenuLinks {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .subMenu {
+    width: 300px;
+  }
+
+  .subMenuLinks {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .subMenu {
+    width: 280px;
+  }
+
+  .subMenuLinks {
+    grid-template-columns: 1fr;
+  }
+}
