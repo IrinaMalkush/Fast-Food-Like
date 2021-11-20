@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchNews } from "./FetchNewsThunk";
-import { INewsList } from "../../api/types/INew";
+import { fetchComments } from "./FetchCommentsThunk";
+import { ICommentsList } from "../../api/types/IComment";
 
-const initialState: INewsList = {
+const initialState: ICommentsList = {
   items: [],
   total: 0,
   isFetching: false,
@@ -11,8 +11,8 @@ const initialState: INewsList = {
   errorMessage: "",
 };
 
-export const NewsSlice = createSlice({
-  name: "news",
+export const CommentsSlice = createSlice({
+  name: "comments",
   initialState,
   reducers: {
     clearState: (state) => {
@@ -23,16 +23,16 @@ export const NewsSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(fetchNews.fulfilled, (state, { payload }) => {
+    builder.addCase(fetchComments.fulfilled, (state, { payload }) => {
       state.isFetching = false;
       state.isSuccess = true;
       state.items = payload.items;
       state.total = payload.total;
     });
-    builder.addCase(fetchNews.pending, (state, action) => {
+    builder.addCase(fetchComments.pending, (state, action) => {
       state.isFetching = true;
     });
-    builder.addCase(fetchNews.rejected, (state, action) => {
+    builder.addCase(fetchComments.rejected, (state, action) => {
       state.isFetching = false;
       state.isError = true;
       state.errorMessage = action.error.message;

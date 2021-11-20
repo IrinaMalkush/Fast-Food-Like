@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { ReactElement } from "react";
 import { useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../core/hooks/Hooks";
 import { menuPartsSelector } from "../../modules/menuParts/MenuPartsSelector";
@@ -6,12 +6,16 @@ import { fetchMenuParts } from "../../modules/menuParts/FetchMenuPartsThunk";
 import { MenuContent } from "./components/MenuContent";
 import styles from "./styles.module.css";
 
-export function Menu(): React.ReactElement {
+export function Menu(): ReactElement {
   const dispatch = useAppDispatch();
   const menuTabsList = useAppSelector(menuPartsSelector);
 
   useEffect(() => {
     dispatch(fetchMenuParts(null));
+  }, []);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
   }, []);
 
   let [currentMenuTab, setCurrentMenuTab] = useState<string>("foodList");

@@ -1,3 +1,3 @@
-import {RootState} from '../../core/redux/Store';
+import { RootState } from "../../core/redux/Store";
 
 export const newsSelector = (state: RootState) => state.news;

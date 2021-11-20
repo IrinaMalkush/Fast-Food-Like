@@ -1,11 +1,11 @@
-import React from "react";
+import React, { ReactElement } from "react";
 import { NavLink } from "react-router-dom";
 import { RouterSwitchNavigation } from "../routerSwitch/RouterSwitchNavigation";
 import { ReactComponent as MenuHamburger } from "../../assets/svgs/menu.svg";
 import classNames from "classnames";
 import styles from "./styles.module.css";
 
-export function NavigationMenu() {
+export function NavigationMenu(): ReactElement {
   return (
     <div>
       <nav className={styles.navigationMenu}>

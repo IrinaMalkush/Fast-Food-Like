@@ -3,7 +3,7 @@
     align-items: center;
     justify-content: center;
     background-image: url(main-background.jpg);
-    background-color: #f8ecdb;
+    background-color: var(--background000);
 }
 
 .layout {
@@ -12,13 +12,13 @@
 }
 
 .header {
-    background: linear-gradient(to bottom right, #f4ca1c, #e77e11);
+    background: var(--headerGradient);
     height: 170px;
     width: 100%;
 }
 
 .footer {
-    background-color: #edd6a2;
+    background-color: var(--background400);
 }
 
 @media screen and (max-width: 1080px) {

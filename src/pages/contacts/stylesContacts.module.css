@@ -1,12 +1,12 @@
-.contactstext {
+.text {
   width: 100%;
-  margin-bottom: 100px;
-  padding-top: 20px;
+  padding-top: 28px;
+  padding-bottom: 100px;
 }
 
-.contactstext > p {
+.text > p {
   font-family: var(--base-font);
-  color: #564743;
+  color: var(--textDark);
   font-size: 20px;
   margin-left: 50px;
   margin-top: 0;
@@ -49,13 +49,13 @@
 .addresses > * {
   border: 2px double var(--base-border);
   box-shadow: var(--base-shadow);
-  background-color: ivory;
+  background-color: var(--background100);
 }
 
 .address {
   font-size: 17px;
   font-family: var(--base-font);
-  color: #564743;
+  color: var(--textDark);
   margin: 15px;
   line-height: 25px;
 }
@@ -65,23 +65,13 @@
   color: #fd7209;
 }
 
-.work-time {
+.workTime {
   font-size: 16px;
   font-family: var(--base-font);
-  color: #564743;
+  color: var(--textDark);
   margin: 18px;
   line-height: 25px;
   text-align: center;
-}
-
-.address-map {
-  margin: 15px 10px;
-  height: 420px;
-}
-
-.Map-container {
-  height: 100%;
-  width: 100%;
 }
 
 @media screen and (max-width: 1080px) {
@@ -101,11 +91,6 @@
     margin: 10px;
     grid-template-columns: 1fr 140px;
   }
-
-  .address-map {
-    margin: 12px 10px;
-    height: 350px;
-  }
 }
 
 @media screen and (max-width: 480px) {
@@ -118,20 +103,10 @@
       "secondmap";
     grid-template-columns: 1fr;
   }
-
-  .address-map {
-    margin: 10px 10px;
-    height: 420px;
-  }
 }
 
 @media screen and (max-width: 320px) {
   .addresses {
     margin: 6px;
-  }
-
-  .address-map {
-    margin: 5px 5px;
-    height: 290px;
   }
 }

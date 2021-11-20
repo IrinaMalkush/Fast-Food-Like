@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import InstagramGallery from "./InstagramGallery";
 
 // InstagramGallery from https://codesandbox.io/s/pw363kq3nm?file=/src/index.js:0-535
@@ -8,6 +8,10 @@ export function Gallery() {
   const INSTAGRAM_ID = "7129949213";
   const THUMBNAIL_WIDTH = 640;
   const PHOTO_COUNT = 60;
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <InstagramGallery

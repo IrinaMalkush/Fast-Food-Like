@@ -1,12 +1,12 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { FetchNewsType } from "../../api/types/FetchNewsType";
+import { FetchCommentsType } from "../../api/types/FetchCommentsType";
 import { baseUrl } from "../../api/BaseUrl";
 
-export const fetchNews = createAsyncThunk(
-  "news",
-  async ({ page, pageSize }: FetchNewsType, ThunkAPI) => {
+export const fetchComments = createAsyncThunk(
+  "comments",
+  async ({ page }: FetchCommentsType, ThunkAPI) => {
     try {
-      const response = await fetch(`${baseUrl}/newsList?_page=${page}&_limit=${pageSize}`, {
+      const response = await fetch(`${baseUrl}/comments?_page=${page}`, {
         method: "GET",
         headers: {
           Accept: "application/json",

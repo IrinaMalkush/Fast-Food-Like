@@ -30,7 +30,7 @@
 
 .trapezoid {
     width: 120px;
-    height: 0px;
+    height: 0;
     border-bottom: 45px solid #edd6a2;
     border-left: 30px solid transparent;
     border-right: 30px solid transparent;
@@ -75,25 +75,25 @@
     font-weight: bold;
     color: var(--base-white);
     text-shadow: 0.1em 0.1em 0.2em #6282ad;
-    background-color: #edd6a2;
+    background-color: var(--navButton);
     border-radius: 4px;
     text-decoration: none;
     box-sizing: border-box;
 }
 
 .menuButton:hover {
-    background-color: #e8c374;
+    background-color: var(--navButtonHover);
     transition-duration: 1s;
 }
 
 .menuButton.active {
-    color: #fe6d02;
+    color: var(--navButtonActive);
     text-shadow: none;
 }
 
 
 .mainPart {
-    background-color: #f2efdc;
+    background-color: var(--background200);
     box-sizing: content-box;
     min-height: 600px;
 }

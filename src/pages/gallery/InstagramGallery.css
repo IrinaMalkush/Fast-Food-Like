@@ -1,11 +1,11 @@
 .photos {
     column-count: 1;
     column-gap: 8px;
-    margin: 20px;
+    padding: 20px;
   }
-  
+
   .photo {
-    background-color: ivory;
+    background-color: var(--background100);
     display: inline-block;
     margin-bottom: 10px;
     width: 100%;
@@ -14,19 +14,19 @@
     box-shadow: var(--base-shadow);
     box-sizing: border-box;
   }
-  
+
   @media only screen and (min-width: 480px) {
     .photos {
       column-count: 2;
     }
   }
-  
+
   @media only screen and (min-width: 768px) {
     .photos {
       column-count: 3;
     }
   }
-  
+
   @media only screen and (min-width: 1080px) {
     .photos {
       column-count: 4;

@@ -6,29 +6,27 @@
   width: 100%;
 }
 
-.promotion-container {
+.container {
     margin-top: 35px;
 }
 
-.promotion-content {
+.content {
   display: flex;
   flex-direction: row;
-  box-sizing: border-box;
   padding: 10px;
   width: 750px;
-  background-color: ivory;
+  background-color: var(--background100);
   box-shadow: var(--base-shadow);
   border: 3px solid var(--base-border);
   box-sizing: content-box;
   margin-bottom: 20px;
-  margin-bottom: 20px;
 }
 
-.promotion-image > img {
+.image > img {
   width: 350px;
 }
 
-.prom-text-date {
+.textDate {
   display: flex;
   flex-direction: column;
   align-content: space-between;
@@ -38,11 +36,11 @@
   margin-left: 15px;
 }
 
-.prom-text-date >*:first-child {
+.textDate >*:first-child {
     font-size: 18px;
 }
 
-.prom-text-date > *:last-child {
+.textDate > *:last-child {
     font-size: 15px;
     opacity: 0.5;
     line-height: 40px;
@@ -51,63 +49,63 @@
   }
 
   @media screen and (max-width: 1080px) {
-    .promotion-content {
+    .content {
         width: 700px;
     }
 
-    .promotion-image > img {
+    .image > img {
         width: 300px;
       }
   }
 
   @media screen and (max-width: 768px) {
-    .promotion-content {
+    .content {
         width: 600px;
     }
 
-    .prom-text-date >*:first-child {
+    .textDate >*:first-child {
         font-size: 17px;
     }
   }
 
   @media screen and (max-width: 644px) {
-    .promotion-content {
+    .content {
         width: 460px;
     }
 
-    .promotion-image > img {
+    .image > img {
         width: 200px;
       }
 
-      .prom-text-date >*:first-child {
+      .textDate >*:first-child {
         font-size: 16px;
     }
   }
 
   @media screen and (max-width: 504px) {
-    .promotion-content {
+    .content {
         width: 400px;
     }
 
-    .promotion-image > img {
+    .image > img {
         width: 150px;
       }
 
-      .prom-text-date >*:first-child {
+      .textDate >*:first-child {
         font-size: 15px;
     }
   }
 
   @media screen and (max-width: 444px) {
-    .promotion-content {
+    .content {
         width: 90%;
     }
 
-    .promotion-image > img {
+    .image > img {
         width: 100px;
       }
 
-      .prom-text-date >*:first-child {
+      .textDate >*:first-child {
         font-size: 14px;
     }
   }

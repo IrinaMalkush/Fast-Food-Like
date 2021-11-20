@@ -1,0 +1,109 @@
+.pageWrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    font-family: var(--base-font);
+    color: var(--textMedium);
+    font-size: 28px;
+    text-transform: uppercase;
+    margin: 50px 0 0;
+}
+
+.leaveReview {
+    font-family: var(--base-font);
+    color: var(--textLight);
+    font-size: 18px;
+    margin-right: 50px;
+    text-transform: uppercase;
+    align-self: flex-end;
+    cursor: pointer;background: linear-gradient(to right, #F1C91A, #F98600);
+    background-size: 400% 400%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-animation: rainbow 20s ease infinite;
+    animation: rainbow 20s ease infinite;
+}
+
+@-webkit-keyframes rainbow {
+    0% { background-position: 0% 50% }
+    50% { background-position: 100% 50% }
+    100% { background-position: 0% 50% }
+}
+
+@keyframes rainbow {
+    0% { background-position: 0% 50% }
+    50% { background-position: 100% 50% }
+    100% { background-position: 0% 50% }
+}
+
+.commentsWrapper {
+    margin: 0 30px;
+}
+
+.itemContainer {
+    background-color: var(--background100);
+    box-shadow: var(--base-shadow);
+    border: 3px solid var(--base-border);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    margin: 40px 80px 0;
+    padding: 15px 20px;
+}
+
+.itemContainer > * {
+    font-family: var(--base-font);
+    font-size: 18px;
+    line-height: 28px;
+}
+
+.name {
+    color: var(--textMedium);
+    margin: 0 8px 2px 12px;
+}
+
+.text {
+    color: var(--textDark);
+    padding: 0 0 0 8px;
+}
+
+.date {
+    color: var(--textLight);
+    margin-left: 30px;
+}
+
+.replyWrapper {
+    margin-left: 50px;
+}
+
+.replyItemContainer {
+    background-color: var(--background100);
+    box-shadow: var(--base-shadow);
+    border: 3px solid var(--base-border);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    margin: 10px 60px 10px 80px;
+    padding: 15px 20px;
+    position: relative;
+}
+
+.replyItemContainer > * {
+    font-family: var(--base-font);
+    font-size: 18px;
+    line-height: 28px;
+}
+
+.icon {
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--textBlue);
+    position: absolute;
+    top: 10px;
+    left: 12px;
+}

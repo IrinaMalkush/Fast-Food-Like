@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { ReactElement } from "react";
 import { IMenuItem } from "../../../api/types/IMenu";
 import { useState } from "react";
 import { Modal } from "../../../ui/modal/Modal";
@@ -8,7 +8,7 @@ interface MenuItemProps {
   element: IMenuItem;
 }
 
-export function MenuItem({ element }: MenuItemProps): React.ReactElement {
+export function MenuItem({ element }: MenuItemProps): ReactElement {
   const [open, setOpen] = useState<boolean>(false);
 
   return (

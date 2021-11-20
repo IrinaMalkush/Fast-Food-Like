@@ -1,25 +1,59 @@
 .headerContainer {
     display: flex;
-    justify-content: space-between;
+    flex-direction: row;
+}
+
+.headerContainer > :first-child {
+    padding: 8px 16px;
+    width: 468px;
+}
+
+.phones {
+    display: flex;
+    flex-direction: row;
     align-items: flex-end;
 }
 
-.headerContainer > p {
-    margin: 8px 16px 8px 16px;
-    font-family: var(--base-font);
-    font-size: 25px;
+.icon {
     color: var(--base-white);
-    width: 200px;
+    text-shadow: 1px 1px 2px var(--navButtonActive);
+    font-size: 18px;
+    margin: 0 8px 2px 0;
 }
 
-.headerContainer > a {
+.phones > :nth-child(2) {
+    font-family: var(--base-font);
+    font-size: 24px;
+    color: var(--base-white);
+    text-shadow: 1px 1px 2px var(--navButtonActive);
+    margin: 0;
+    padding: 10px 5px 0 0;
+}
+
+.phones > :last-child {
+    font-family: var(--base-font);
+    font-size: 20px;
+    color: var(--base-white);
+    text-shadow: 1px 1px 2px var(--navButtonActive);
+    margin: 0;
+    padding: 10px 0 1px;
+}
+
+.logo {
     height: 170px;
     width: 170px;
+    margin: 0 15px;
 }
 
-.headerContainer > a > img {
-    height: 170px;
+.logo > a > img {
+    height: 100%;
     border-radius: 8px;
+}
+
+.rightBlock {
+    width: 500px;
+    display: flex;
+    justify-content: flex-end;
 }
 
 .socialLinks {
@@ -27,7 +61,7 @@
     display: flex;
     flex-direction: row;
     padding: 0;
-    margin: 8px 16px 8px 16px;
+    margin: 20px 16px 8px 16px;
     width: 200px;
 }
 
@@ -35,7 +69,9 @@
     font-family: var(--base-font);
     font-size: 15px;
     color: var(--base-white);
-    margin: 14px 6px 4px 0;
+    text-shadow: 1px 1px 2px var(--navButtonActive);
+    margin: 12px 6px 4px 0;
+    text-decoration: none;
     text-transform: uppercase;
 }
 

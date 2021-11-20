@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { ReactElement } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { MainPage } from "../main/MainPage";
 import { Menu } from "../foodMenu/Menu";
@@ -9,7 +9,7 @@ import { Comments } from "../comments/Comments";
 import { Gallery } from "../gallery/Gallery";
 import { NoPageFound } from "../notFound/NoPageFound";
 
-export function RouterSwitchNavigation(): React.ReactElement {
+export function RouterSwitchNavigation(): ReactElement {
   return (
     <Switch>
       <Route exact path="/" component={MainPage} />

@@ -1,17 +1,27 @@
-.orange-theme {
-    --base-font: Arial, Helvetica, sans-serif;
-    --base-white: #fff;
-    --base-black: #1F1F1F;
-    --base-border: #E1E1E1;
-    --base-shadow: -2px 4px 7px rgba(164, 139, 113, 0.25);
-    --base-shadow-border: -1px 1px 8px rgba(169, 169, 169, 0.25), 0px 0px 0px 3px #6282AD;
+.light {
+    --base-color-light: #F4C91C;
+    --headerGradient: linear-gradient(to bottom right, #F1C91A, #F98600);
+    --background000: #E6E6D8;
+    --background100: #FFFFF0;
+    --background200: #f2efdc;
+    --background400: #edd6a2;
+    --navButton: #edd6a2;
+    --navButtonHover: #e8c374;
+    --navButtonActive: #fe6d02;
+    --textDark: #564743;
+    --textMedium: #736849;
+    --textLight: #9d978e;
+    --textBlue: #0c328c;
 }
 
-.green-theme {
-    --base-font: Arial, Helvetica, sans-serif;
-    --base-white: #fafff0;
-    --base-black: #212321;
-    --base-border: #3ca132;
-    --base-shadow: -2px 4px 7px rgba(164, 139, 113, 0.25);
-    --base-shadow-border: -1px 1px 8px rgba(169, 169, 169, 0.25), 0px 0px 0px 3px #569442;
+.dark {
+    --base-color-light: #F4C91C;
+    --headerGradient: linear-gradient(to bottom right, #efd554, #b46909);
+    --background000: #ada79c;
+    --background100: #867f76;
+    --background200: #5d5a56;
+    --background400: #413f3c;
+    --navButton: #bdad85;
+    --navButtonHover: #816e3d;
+    --navButtonActive: #733a0e;
 }

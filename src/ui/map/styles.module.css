@@ -1,0 +1,30 @@
+.map {
+    margin: 15px 10px;
+    height: 420px;
+}
+
+.mapContainer {
+    height: 100%;
+    width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+    .map {
+        margin: 12px 10px;
+        height: 350px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .map {
+        margin: 10px 10px;
+        height: 420px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .map {
+        margin: 5px 5px;
+        height: 290px;
+    }
+}
