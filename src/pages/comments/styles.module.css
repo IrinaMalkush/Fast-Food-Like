@@ -18,31 +18,55 @@
     font-family: var(--base-font);
     color: var(--textLight);
     font-size: 18px;
+    font-weight: bold;
     margin-right: 50px;
     text-transform: uppercase;
     align-self: flex-end;
-    cursor: pointer;background: linear-gradient(to right, #F1C91A, #F98600);
+    cursor: pointer;
+    background: linear-gradient(to right, #0c328c, #F1C91A, #F98600);
     background-size: 400% 400%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    -webkit-animation: rainbow 20s ease infinite;
-    animation: rainbow 20s ease infinite;
+    -webkit-animation: rainbow 5s ease-in-out infinite;
+    animation: rainbow 5s ease-in-out infinite;
+    padding: 10px 36px;
+    box-shadow: 0 2px 22px 2px rgba(43, 57, 72, 0.15);;
 }
 
 @-webkit-keyframes rainbow {
-    0% { background-position: 0% 50% }
-    50% { background-position: 100% 50% }
-    100% { background-position: 0% 50% }
+    0% {
+        background-position: 0% 50%
+    }
+    50% {
+        background-position: 100% 50%
+    }
+    100% {
+        background-position: 0% 50%
+    }
 }
 
 @keyframes rainbow {
-    0% { background-position: 0% 50% }
-    50% { background-position: 100% 50% }
-    100% { background-position: 0% 50% }
+    0% {
+        background-position: 0% 50%
+    }
+    50% {
+        background-position: 100% 50%
+    }
+    100% {
+        background-position: 0% 50%
+    }
 }
 
 .commentsWrapper {
     margin: 0 30px;
+}
+
+.speech {
+    padding: 20px 60px;
+    font-size: 18px;
+    line-height: 28px;
+    color: #564743;
+    text-align: center;
 }
 
 .itemContainer {
@@ -107,3 +131,149 @@
     top: 10px;
     left: 12px;
 }
+
+.formContainer {
+    width: 100%;
+    height: 100%;
+}
+
+.mark {
+    padding-left: 32px;
+    color: #736849;
+}
+
+.mark > span {
+    padding: 2px;
+    color: #ff4d00;
+    font-weight: bold;
+}
+
+.submitButton {
+    background-color: #EDD6A2;
+    border: none;
+    border-radius: 4px;
+    font-size: 15px;
+    text-align: center;
+    font-weight: bold;
+    color: #fe6d02;
+    text-transform: uppercase;
+    width: 200px;
+    position: absolute;
+    bottom: 36px;
+    right: 46px;
+}
+
+.submitButton:hover {
+    background-color: #e8c374;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.submitButton:focus {
+    box-shadow: 2px 4px 22px rgba(254, 109, 2, 0.6);
+}
+
+.input {
+    margin-left: 30px;
+    position: relative;
+    padding: 8px 0;
+}
+
+.input > * {
+    font-family: Avenir-Medium, sans-serif;
+}
+
+.errHeight {
+    padding: 4px 0;
+}
+
+.inputName {
+    height: 26px;
+    display: flex;
+    align-items: center;
+}
+
+.inputName > div {
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #736849;
+    height: 18px;
+    padding-left: 4px;
+}
+
+.inputName > div > span {
+    padding: 2px;
+    color: #ff4d00;
+    font-weight: bold;
+}
+
+.inputLine {
+    background-color: #eaeade;
+    box-shadow: 2px 4px 7px rgba(164, 139, 113, 0.25);
+    border-radius: 4px;
+    border: 0;
+    width: 352px;
+    height: 38px;
+    font-size: 14px;
+    line-height: 24px;
+    color: #564743;
+    outline: none;
+    padding-left: 12px;
+}
+
+.textAreaStyle {
+    background-color: #eaeade;
+    box-shadow: 2px 4px 7px rgba(164, 139, 113, 0.25);
+    border-radius: 4px;
+    border: 0;
+    width: 736px;
+    font-size: 14px;
+    line-height: 24px;
+    color: #564743;
+    outline: none;
+    resize: none;
+    padding: 16px 12px;
+}
+
+.textAreaNoErrors {
+    height: 160px;
+}
+
+.textAreaErrors {
+    height: 128px;
+}
+
+.inputLine::placeholder, .textAreaStyle::placeholder {
+    color: #9d978e;
+}
+
+.inputLine:hover, .textAreaStyle:hover, .inputLine:focus, .textAreaStyle:focus {
+    background: ivory;
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px #eaeade inset, 2px 4px 7px rgba(164, 139, 113, 0.25);
+}
+
+input:-webkit-autofill:hover {
+    -webkit-box-shadow: 0 0 0 1000px ivory inset, 2px 4px 7px rgba(164, 139, 113, 0.25);
+}
+
+.inputLine:disabled, .textAreaStyle:disabled {
+    background: #E6E6D8;
+    color: #9d978e;
+}
+
+.inputLine:invalid, .textAreaStyle:invalid {
+    background: #E6E6D8;
+    border: 1px solid #ff4d00;
+    box-sizing: border-box;
+}
+
+.errorMessage {
+    font-family: Avenir, sans-serif;
+    font-size: 12px;
+    line-height: 24px;
+    color: #ff4d00;
+    margin-top: 2px;
+}
+

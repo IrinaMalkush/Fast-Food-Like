@@ -5,7 +5,7 @@ import { ReactComponent as MenuHamburger } from "../../assets/svgs/menu.svg";
 import classNames from "classnames";
 import styles from "./styles.module.css";
 
-export function NavigationMenu(): ReactElement {
+export function Navigation(): ReactElement {
   return (
     <div>
       <nav className={styles.navigationMenu}>

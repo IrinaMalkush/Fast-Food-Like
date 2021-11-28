@@ -3,7 +3,7 @@ import styles from "./App.module.css";
 import theme from "./styles/theme.module.css";
 import classNames from "classnames";
 import { Header } from "./pages/header/Header";
-import { NavigationMenu } from "./pages/navigation/NavigationMenu";
+import { Navigation } from "./pages/navigation/Navigation";
 import { PageFooter } from "./pages/footer/PageFooter";
 import { useState } from "react";
 
@@ -20,7 +20,7 @@ function App() {
           <Header />
         </header>
 
-        <NavigationMenu />
+        <Navigation />
 
         <footer className={styles.footer}>
           <PageFooter />

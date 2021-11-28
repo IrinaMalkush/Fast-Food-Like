@@ -45,109 +45,9 @@
     max-width: 100%;
 }
 
-.top {
-    background: linear-gradient(to bottom right, #f5d343, #f3993b);
-    width: 780px;
-    border-radius: 4px;
-    box-shadow: 0 2px 22px 2px rgba(96, 45, 0, 0.3);
-}
-
-.itemName {
-    font-size: 28px;
-    font-weight: bold;
-    text-transform: uppercase;
-    color: #0c328c;
-    letter-spacing: 2px;
-    margin: 6px 0 0 0;
-    text-align: center;
-}
-
-.description {
-    font-size: 16px;
-    font-family: var(--base-font);
-    letter-spacing: 1px;
-    margin: 8px 0 12px 0;
-    text-align: center;
-    color: ivory;
-    padding: 0 30px;
-}
-
-.imagePrices {
-    display: flex;
-    flex-direction: row;
-}
-
-.modalImage {
-    width: 490px;
-    height: 490px;
-    margin: 20px 20px 10px;
-    border-radius: 4px;
-    box-shadow: 0 2px 22px 2px rgba(96, 45, 0, 0.3);
-}
-
-.prices {
-    margin: 20px 16px 10px 0;
-    padding: 20px 10px 10px 18px;
-    width: 274px;
-    border-radius: 4px;
-    box-shadow: 0 2px 22px 2px rgba(96, 45, 0, 0.1);
-    background-color: #eaeade;
-    align-items: center;
-}
-
-.price {
-    margin: 0 0 6px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-.priceName {
-    color: #736849;
-    font-size: 15px;
-    font-family: var(--base-font);
-    line-height: 18px;
-    margin: 4px 0;
-    width: 200px;
-}
-
-.priceNumber {
-    color: #e77f11;
-    font-size: 15px;
-    font-family: var(--base-font);
-    font-weight: bold;
-    line-height: 18px;
-    margin: 4px 2px 4px 8px;
-    width: 56px;
-}
-
-.nameCopy {
-    color: #736849;
-    font-size: 15px;
-    font-family: var(--base-font);
-    line-height: 18px;
-    margin: 4px 0 4px 10px;
-}
-
-.onePrice {
-    color: #e77f11;
-    font-size: 15px;
-    font-family: var(--base-font);
-    font-weight: bold;
-    line-height: 18px;
-    margin: 4px 8px;
-    width: 56px;
-}
-
 @media screen and (max-width: 768px) {
     .modalContainer {
         width: 700px;
-    }
-
-    .modalImage {
-        width: 560px;
-        height: 560px;
-        margin-top: 35px;
     }
 }
 
@@ -157,12 +57,6 @@
         height: 550px;
         border-radius: 4px;
     }
-
-    .modalImage {
-        width: 450px;
-        height: 450px;
-        margin-top: 30px;
-    }
 }
 
 @media screen and (max-width: 530px) {
@@ -171,12 +65,6 @@
         height: 400px;
         border-radius: 4px;
     }
-
-    .modalImage {
-        width: 330px;
-        height: 330px;
-        margin-top: 30px;
-    }
 }
 
 @media screen and (max-width: 400px) {
@@ -184,11 +72,5 @@
         width: 300px;
         height: 300px;
         border-radius: 2px;
-    }
-
-    .modalImage {
-        width: 250px;
-        height: 250px;
-        margin-top: 20px;
     }
 }

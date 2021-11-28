@@ -1,0 +1,96 @@
+.input {
+    margin-left: 30px;
+    position: relative;
+    padding: 8px 0;
+}
+
+.input > * {
+    font-family: Avenir-Medium, sans-serif;
+}
+
+.errHeight {
+    padding: 4px 0;
+}
+
+.inputName {
+    height: 26px;
+    display: flex;
+    align-items: center;
+}
+
+.inputName > div {
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #736849;
+    height: 18px;
+    padding-left: 4px;
+}
+
+.inputName >div > span {
+    padding: 2px;
+    color: #ff4d00;
+    font-weight: bold;
+}
+
+.inputLine {
+    background-color: #EAEADE;
+    box-shadow: 2px 4px 7px rgba(164, 139, 113, 0.25);
+    border-radius: 4px;
+    border: 0;
+    width: 352px;
+    height: 38px;
+    font-size: 14px;
+    line-height: 24px;
+    color: #564743;
+    outline: none;
+    padding-left: 12px;
+}
+
+.textAreaStyle {
+    background-color: #EAEADE;
+    box-shadow: 2px 4px 7px rgba(164, 139, 113, 0.25);
+    border-radius: 4px;
+    border: 0;
+    width: 736px;
+    height: 160px;
+    font-size: 14px;
+    line-height: 24px;
+    color: #564743;
+    outline: none;
+    resize: none;
+    padding: 16px 12px;
+}
+
+.inputLine::placeholder, .textAreaStyle::placeholder {
+    color: #9d978e;
+}
+
+.inputLine:hover, .textAreaStyle:hover, .inputLine:focus, .textAreaStyle:focus {
+    background: ivory;
+}
+
+.inputLine:disabled, .textAreaStyle:disabled {
+    background: #E6E6D8;
+    color: #9d978e;
+}
+
+.inputLine:invalid, .textAreaStyle:invalid {
+    background: #E6E6D8;
+    border: 1px solid #ff4d00;
+    box-sizing: border-box;
+}
+
+.displayEye {
+    position: absolute;
+    height: 16px;
+    right: 12px;
+    top: 39px;
+}
+
+.errorMessage {
+    font-family: Avenir, sans-serif;
+    font-size: 12px;
+    line-height: 24px;
+    color: #ff4d00;
+    margin-top: 2px;
+}
