@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchMenu } from "./FetchMenuThank";
-import { IMenuList } from "../../api/types/IMenu";
+import { fetchGoods } from "./FetchGoodsThunk";
+import { ICartList } from "../../api/types/ICart";
 
-const initialState: IMenuList = {
+const initialState: ICartList = {
   items: [],
   total: 0,
   isFetching: false,
@@ -11,8 +11,8 @@ const initialState: IMenuList = {
   errorMessage: "",
 };
 
-export const MenuSlice = createSlice({
-  name: "menu",
+export const CartSlice = createSlice({
+  name: "cart",
   initialState,
   reducers: {
     clearState: (state) => {
@@ -23,16 +23,16 @@ export const MenuSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(fetchMenu.fulfilled, (state, { payload }) => {
+    builder.addCase(fetchGoods.fulfilled, (state, { payload }) => {
       state.isFetching = false;
       state.isSuccess = true;
       state.items = payload.items;
       state.total = payload.total;
     });
-    builder.addCase(fetchMenu.pending, (state, action) => {
+    builder.addCase(fetchGoods.pending, (state, action) => {
       state.isFetching = true;
     });
-    builder.addCase(fetchMenu.rejected, (state, action) => {
+    builder.addCase(fetchGoods.rejected, (state, action) => {
       state.isFetching = false;
       state.isError = true;
       state.errorMessage = action.error.message;

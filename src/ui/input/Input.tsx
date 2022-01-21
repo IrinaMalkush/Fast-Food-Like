@@ -46,7 +46,10 @@ export const Input = React.forwardRef(
     return (
       <div className={classNames(styles.input, err ? styles.errHeight : "")}>
         <div className={styles.inputName}>
-          <div>{necessarily && <span>&#42;</span>}</div>
+          <div>
+            {label}
+            {necessarily && <span>&#42;</span>}
+          </div>
         </div>
         {inputType === "pswd" &&
           (showingPassword ? (

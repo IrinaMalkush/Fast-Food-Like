@@ -1,8 +1,11 @@
 import React, { ReactElement } from "react";
-import { IMenuItem } from "../../../api/types/IMenu";
 import { useState } from "react";
 import { Modal } from "../../../ui/modal/Modal";
-import Cart from "../../../assets/img/shoppingCardBlue.png";
+import { useAppDispatch } from "../../../core/hooks/Hooks";
+import { addGoods } from "../../../modules/cart/AddToCartThunk";
+import cart from "../../../assets/img/shoppingCardBlue.png";
+import { IMenuItem } from "../../../api/types/IMenu";
+import { AddGoodsType } from "../../../api/types/AddGoodsType";
 import styles from "../styles.module.css";
 
 interface MenuItemProps {
@@ -11,6 +14,16 @@ interface MenuItemProps {
 
 export function MenuItem({ element }: MenuItemProps): ReactElement {
   const [open, setOpen] = useState<boolean>(false);
+
+  const dispatch = useAppDispatch();
+  const add = ({ productId, user }: AddGoodsType) => {
+    dispatch(
+      addGoods({
+        productId: productId,
+        user: user,
+      }),
+    );
+  };
 
   return (
     <>
@@ -38,7 +51,12 @@ export function MenuItem({ element }: MenuItemProps): ReactElement {
                   <p className={styles.priceName}>{item.pricename}</p>
                   <div className={styles.priceCart}>
                     <p className={styles.priceNumber}>{item.price}</p>
-                    <img src={Cart} alt={"add to cart"} className={styles.cart} />
+                    <img
+                      src={cart}
+                      alt={"add to cart"}
+                      className={styles.cart}
+                      onClick={() => add({ productId: element.id, user: "valera" })}
+                    />
                   </div>
                 </div>
               ))
@@ -47,7 +65,12 @@ export function MenuItem({ element }: MenuItemProps): ReactElement {
                 <p className={styles.nameCopy}>{element.name}</p>
                 <div className={styles.priceCart}>
                   <p className={styles.onePrice}>{element.pricelist[0].price}</p>
-                  <img src={Cart} alt={"add to cart"} className={styles.cart} />
+                  <img
+                    src={cart}
+                    alt={"add to cart"}
+                    className={styles.cart}
+                    onClick={() => add({ productId: element.id, user: "valera" })}
+                  />
                 </div>
               </div>
             )}

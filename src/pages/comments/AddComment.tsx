@@ -2,7 +2,6 @@ import React, { ReactElement, useState } from "react";
 import { useForm, SubmitHandler, Path } from "react-hook-form";
 import { Modal } from "../../ui/modal/Modal";
 import styles from "./styles.module.css";
-import { Input } from "../../ui/input/Input";
 import { Loader } from "../../ui/loader/Loader";
 import classNames from "classnames";
 

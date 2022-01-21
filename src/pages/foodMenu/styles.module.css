@@ -154,7 +154,7 @@
 }
 
 .price {
-    margin: 0 0 6px;
+    margin: 0 0 16px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -185,6 +185,7 @@
 
 .cart {
     height: 24px;
+    cursor: pointer;
 }
 
 .nameCopy {

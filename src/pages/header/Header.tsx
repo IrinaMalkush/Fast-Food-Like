@@ -1,10 +1,15 @@
-import React, { ReactElement } from "react";
+import React, { ReactElement, useState } from "react";
 import { SocialLink } from "../../ui/socialLink/SocialLink";
 import logo from "../../assets/img/logo.jpg";
 import insta from "../../assets/img/insta.png";
+import cart from "../../assets/img/shoppingCardWhite.png";
 import styles from "./styles.module.css";
+import { Modal } from "../../ui/modal/Modal";
+import { Cart } from "../cart/Cart";
 
 export function Header(): ReactElement {
+  const [open, setOpen] = useState<boolean>(false);
+
   return (
     <div className={styles.headerContainer}>
       <div>
@@ -35,6 +40,12 @@ export function Header(): ReactElement {
             src={insta}
           />
         </nav>
+        <div className={styles.cartWrapper}>
+          <img src={cart} alt={"корзина"} className={styles.cart} onClick={() => setOpen(!open)} />
+        </div>
+        <Modal isOpen={open} onClose={() => setOpen(false)}>
+          <Cart />
+        </Modal>
       </div>
     </div>
   );
