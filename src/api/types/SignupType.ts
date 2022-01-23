@@ -1,5 +1,5 @@
 export type SignUpType = {
   userName: string;
-  login: string;
+  email: string;
   password: string;
 };

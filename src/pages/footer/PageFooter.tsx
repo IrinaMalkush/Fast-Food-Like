@@ -68,8 +68,8 @@ export function PageFooter(): ReactElement {
           </p>
         </div>
       </div>
-      <p className={styles.copyright}>2018-2020 &copy; Fast Food Like</p>
-      <p className={styles.copyDev}>Разработка сайта: Ирина Малкуш</p>
+      <p className={styles.copyright}>2018-2022 &copy; Fast Food Like</p>
+      <p className={styles.copyDev}>Разработка сайта: Ирина Долгонюк</p>
     </div>
   );
 }
