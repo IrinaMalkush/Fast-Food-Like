@@ -5,6 +5,7 @@ import { menuPartsSelector } from "../../modules/menuParts/MenuPartsSelector";
 import { fetchMenuParts } from "../../modules/menuParts/FetchMenuPartsThunk";
 import { MenuContent } from "./components/MenuContent";
 import styles from "./styles.module.css";
+import { Loader } from "../../ui/loader/Loader";
 
 export function Menu(): ReactElement {
   const dispatch = useAppDispatch();
@@ -18,7 +19,7 @@ export function Menu(): ReactElement {
     window.scrollTo(0, 0);
   }, []);
 
-  let [currentMenuTab, setCurrentMenuTab] = useState<string>("foodList");
+  let [currentMenuTab, setCurrentMenuTab] = useState<string>(menuTabsList.items[0].id);
   const changeCurrentMenuTab = (newTab: string) => {
     setCurrentMenuTab(newTab);
   };
@@ -27,15 +28,19 @@ export function Menu(): ReactElement {
     <div className={styles.menuContainer}>
       <div className={styles.subMenu}>
         <ul className={styles.subMenuLinks}>
-          {menuTabsList.items.map((item) => (
-            <li onClick={() => changeCurrentMenuTab(item.listname)} key={item.id}>
-              <div className={styles.subMenuButton}>{item.partname}</div>
-            </li>
-          ))}
+          {menuTabsList && menuTabsList.items ? (
+            menuTabsList.items.map((item) => (
+              <li onClick={() => changeCurrentMenuTab(item.id)} key={item.id}>
+                <div className={styles.subMenuButton}>{item.partname.slice(0, 10)}</div>
+              </li>
+            ))
+          ) : (
+            <></>
+          )}
         </ul>
       </div>
       <div className={styles.subMenuItems}>
-        <MenuContent listName={currentMenuTab} />
+        {currentMenuTab ? <MenuContent categoryId={currentMenuTab} /> : <Loader />}
       </div>
     </div>
   );

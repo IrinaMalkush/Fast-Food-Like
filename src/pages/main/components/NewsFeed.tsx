@@ -1,5 +1,6 @@
 import React, { ReactElement } from "react";
 import styles from "../styles.module.css";
+import { DateFormat } from "../../../helpers/DateFormat";
 
 interface INewsFeedProps {
   dateOfNew: string;
@@ -17,7 +18,7 @@ export function NewsFeed({ dateOfNew, image, newsItem }: INewsFeedProps): ReactE
         </div>
         <div className={styles.newsTextData}>
           <p>{newsItem}</p>
-          <p>{dateOfNew}</p>
+          <DateFormat date={dateOfNew} />
         </div>
       </div>
     </div>

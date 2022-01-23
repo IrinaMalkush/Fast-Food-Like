@@ -15,82 +15,68 @@ export function Navigation(): ReactElement {
         </label>
         <ul className={styles.menuLinks}>
           <li>
-            <div className={styles.toRight}>
-              <NavLink
-                to={"/"}
-                exact={true}
-                activeClassName={classNames(styles.menuButton, styles.active)}
-                className={styles.menuButton}
-              >
-                <span className={styles.straightRight}>Главная</span>
-              </NavLink>
-            </div>
+            <NavLink
+              to={"/"}
+              exact={true}
+              activeClassName={classNames(styles.menuButton, styles.active)}
+              className={styles.menuButton}
+            >
+              Главная
+            </NavLink>
           </li>
           <li>
-            <div className={styles.toRight}>
-              <NavLink
-                to={"/menu"}
-                activeClassName={classNames(styles.menuButton, styles.active)}
-                className={styles.menuButton}
-              >
-                <span className={styles.straightRight}>Меню</span>
-              </NavLink>
-            </div>
+            <NavLink
+              to={"/menu"}
+              activeClassName={classNames(styles.menuButton, styles.active)}
+              className={styles.menuButton}
+            >
+              Меню
+            </NavLink>
           </li>
           <li>
-            <div className={styles.toRight}>
-              <NavLink
-                to={"/delivery"}
-                activeClassName={classNames(styles.menuButton, styles.active)}
-                className={styles.menuButton}
-              >
-                <span className={styles.straightRight}>Еда на дом</span>
-              </NavLink>
-            </div>
+            <NavLink
+              to={"/delivery"}
+              activeClassName={classNames(styles.menuButton, styles.active)}
+              className={styles.menuButton}
+            >
+              заказ
+            </NavLink>
           </li>
           <li>
-            <div className={styles.trapezoid}>
-              <NavLink
-                to={"/events"}
-                activeClassName={classNames(styles.menuButton, styles.active)}
-                className={styles.menuButton}
-              >
-                <span>Акции</span>
-              </NavLink>
-            </div>
+            <NavLink
+              to={"/events"}
+              activeClassName={classNames(styles.menuButton, styles.active)}
+              className={styles.menuButton}
+            >
+              Акции
+            </NavLink>
           </li>
           <li>
-            <div className={styles.toLeft}>
-              <NavLink
-                to={"/contacts"}
-                activeClassName={classNames(styles.menuButton, styles.active)}
-                className={styles.menuButton}
-              >
-                <span className={styles.straightLeft}>Контакты</span>
-              </NavLink>
-            </div>
+            <NavLink
+              to={"/contacts"}
+              activeClassName={classNames(styles.menuButton, styles.active)}
+              className={styles.menuButton}
+            >
+              Контакты
+            </NavLink>
           </li>
           <li>
-            <div className={styles.toLeft}>
-              <NavLink
-                to={"/comments"}
-                activeClassName={classNames(styles.menuButton, styles.active)}
-                className={styles.menuButton}
-              >
-                <span className={styles.straightLeft}>Отзывы</span>
-              </NavLink>
-            </div>
+            <NavLink
+              to={"/comments"}
+              activeClassName={classNames(styles.menuButton, styles.active)}
+              className={styles.menuButton}
+            >
+              Отзывы
+            </NavLink>
           </li>
           <li>
-            <div className={styles.toLeft}>
-              <NavLink
-                to={"/gallery"}
-                activeClassName={classNames(styles.menuButton, styles.active)}
-                className={styles.menuButton}
-              >
-                <span className={styles.straightLeft}>Галерея</span>
-              </NavLink>
-            </div>
+            <NavLink
+              to={"/gallery"}
+              activeClassName={classNames(styles.menuButton, styles.active)}
+              className={styles.menuButton}
+            >
+              Галерея
+            </NavLink>
           </li>
         </ul>
       </nav>

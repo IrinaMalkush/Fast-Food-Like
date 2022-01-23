@@ -8,6 +8,7 @@ import { Carousel } from "./components/Carousel";
 import styles from "./styles.module.css";
 import { Pagination } from "../../ui/pagination/Pagination";
 import { NumberOfItemsOnPage } from "../../ui/pagination/NumberOfItemsOnPage";
+import { Loader } from "../../ui/loader/Loader";
 
 export function MainPage(): ReactElement {
   const [currentPageNumber, setCurrentPageNumber] = useState(1);
@@ -30,29 +31,35 @@ export function MainPage(): ReactElement {
 
   const clickedPage = (page: number) => {
     setCurrentPageNumber(page);
-    // dispatch(fetchNews({ page: page, pageSize: itemsOnPage }));
+    dispatch(fetchNews({ page: page, pageSize: itemsOnPage }));
   };
 
-  const currentPageNews = newsList.items.map((item: INewsItem) => (
-    <NewsFeed
-      dateOfNew={item.dateofnew}
-      image={item.image}
-      newsItem={item.newsitem}
-      key={item.id}
-    />
-  ));
+  const currentPageNews = newsList ? (
+    newsList.items.map((item: INewsItem, index) => (
+      <NewsFeed
+        key={index}
+        dateOfNew={item.dateOfNew}
+        image={item.image}
+        newsItem={item.newsItem}
+      />
+    ))
+  ) : (
+    <Loader />
+  );
 
   return (
     <div className={styles.container}>
       <Carousel />
       <p className={styles.newsTitle}>Новости Fast Food Like</p>
       {currentPageNews}
-      <Pagination
-        current={currentPageNumber}
-        total={newsList.total}
-        clickedPage={clickedPage}
-        onPage={itemsOnPage}
-      />
+      <div className={styles.paginationContainer}>
+        <Pagination
+          current={currentPageNumber}
+          total={newsList.total}
+          clickedPage={clickedPage}
+          onPage={itemsOnPage}
+        />
+      </div>
       <NumberOfItemsOnPage selectNumberOfItems={selectNumberOfItems} />
     </div>
   );

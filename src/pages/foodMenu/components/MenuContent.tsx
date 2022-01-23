@@ -6,19 +6,20 @@ import { menuSelector } from "../../../modules/menu/MenuSelector";
 import { fetchMenu } from "../../../modules/menu/FetchMenuThank";
 import { FetchMenuType } from "../../../api/types/FetchMenuType";
 import styles from "../styles.module.css";
+import { Loader } from "../../../ui/loader/Loader";
 
-export function MenuContent({ listName }: FetchMenuType): ReactElement {
+export function MenuContent({ categoryId }: FetchMenuType): ReactElement {
   const dispatch = useAppDispatch();
   const menuList = useAppSelector(menuSelector);
 
   useEffect(() => {
-    dispatch(fetchMenu({ listName: listName }));
-  }, [listName]);
+    dispatch(fetchMenu({ categoryId: categoryId }));
+  }, [categoryId]);
 
   return (
     <div className={styles.menuItemsContainer}>
       {menuList === undefined ? (
-        <div>Loading...</div>
+        <Loader />
       ) : (
         menuList.items.map((element) => <MenuItem element={element} key={element.id} />)
       )}

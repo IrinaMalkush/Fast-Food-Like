@@ -2,6 +2,8 @@
     list-style: none;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
     padding: 0;
     margin: 65px 10px 40px;
 }
@@ -56,6 +58,7 @@
     display: flex;
     flex-direction: row;
     height: 35px;
+    margin-bottom: 30px;
 }
 
 .numberOfItems > p {

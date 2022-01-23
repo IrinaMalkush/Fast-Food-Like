@@ -1,3 +1,3 @@
 export type FetchMenuType = {
-    listName: string;
-}
+  categoryId: string;
+};
