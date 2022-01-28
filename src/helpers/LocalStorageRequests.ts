@@ -68,3 +68,7 @@ export const ChangeAmount = async ({ productId, type, add }: IChangeProps) => {
 
   setToCart({ cart: cartData });
 };
+
+export const ClearCart = () => {
+  localStorage.removeItem("cart");
+};

@@ -188,6 +188,11 @@
     cursor: pointer;
 }
 
+.cart:active {
+    background-color: #f1d6c0;
+    border-radius: 8px;
+}
+
 .nameCopy {
     color: #736849;
     font-size: 15px;

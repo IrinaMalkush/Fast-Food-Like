@@ -1,6 +1,6 @@
 .iconLink {
     height: 36px;
-    margin: 0 5px;
+    margin: 0 5px 0 0;
 }
 
 @media screen and (max-width: 768px) {

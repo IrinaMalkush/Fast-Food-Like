@@ -4,7 +4,7 @@ import { CartItem } from "./components/CartItem";
 import { CartStepper } from "./components/CartStepper";
 import classNames from "classnames";
 import { useForm } from "react-hook-form";
-import { GetFromCart } from "../../helpers/LocalStorageRequests";
+import { ClearCart, GetFromCart } from "../../helpers/LocalStorageRequests";
 import { ICart } from "../../api/types/AddGoodsType";
 
 export function Cart(): ReactElement {
@@ -19,11 +19,6 @@ export function Cart(): ReactElement {
   const [currentStep, setCurrentStep] = useState(1);
   const setStep = (step: number) => {
     setCurrentStep(step);
-  };
-
-  const [totalSum, setTotalSum] = useState(0);
-  const setTotal = (total: number) => {
-    setTotalSum(total);
   };
 
   const [showMore, setShowMore] = useState(false);
@@ -63,6 +58,9 @@ export function Cart(): ReactElement {
             </div>
           </div>
           <div className={styles.buttonContainer}>
+            <button className={styles.clearButton} onClick={() => ClearCart()}>
+              очистить корзину
+            </button>
             <button className={styles.proceedButton} onClick={() => setStep(2)}>
               оформить заказ
             </button>
@@ -72,7 +70,19 @@ export function Cart(): ReactElement {
       {currentStep === 2 && (
         <div className={styles.orderContainer}>
           <div className={classNames(styles.itemName, styles.toPay)}>
-            Итого к оплате: <div className={styles.sum}>{totalSum} руб.</div>
+            Итого к оплате:{" "}
+            <div className={styles.sum}>
+              {cartItems
+                ? cartItems
+                    .reduce(
+                      (sum, current) =>
+                        sum + current.value.reduce((s, curr) => s + curr.price * curr.amount, 0),
+                      0,
+                    )
+                    .toFixed(2)
+                : 0}{" "}
+              руб.
+            </div>
           </div>
           <div className={styles.itemName}>Выберете способ доставки:</div>
           <form onSubmit={handleSubmit(onSubmitButton)}>
@@ -140,136 +150,3 @@ export function Cart(): ReactElement {
 }
 
 const steps = ["редактирование заказа", "оформление заказа", "оплата"];
-
-const cart = [
-  {
-    name: "куринные наггетсы",
-    price: 20,
-    count: 1,
-  },
-  {
-    name: "бигбургер",
-    price: 45,
-    count: 2,
-  },
-  {
-    name: "куринные наггетсы",
-    price: 20,
-    count: 1,
-  },
-  {
-    name: "бигбургер",
-    price: 45,
-    count: 2,
-  },
-  {
-    name: "куринные наггетсы",
-    price: 20,
-    count: 1,
-  },
-  {
-    name: "бигбургер",
-    price: 45,
-    count: 2,
-  },
-  {
-    name: "куринные наггетсы",
-    price: 20,
-    count: 1,
-  },
-  {
-    name: "бигбургер",
-    price: 45,
-    count: 2,
-  },
-  {
-    name: "куринные наггетсы",
-    price: 20,
-    count: 1,
-  },
-  {
-    name: "бигбургер",
-    price: 45,
-    count: 2,
-  },
-  {
-    name: "куринные наггетсы",
-    price: 20,
-    count: 1,
-  },
-  {
-    name: "бигбургер",
-    price: 45,
-    count: 2,
-  },
-  {
-    name: "куринные наггетсы",
-    price: 20,
-    count: 1,
-  },
-  {
-    name: "бигбургер",
-    price: 45,
-    count: 2,
-  },
-  {
-    name: "куринные наггетсы",
-    price: 20,
-    count: 1,
-  },
-  {
-    name: "бигбургер",
-    price: 45,
-    count: 2,
-  },
-  {
-    name: "куринные наггетсы",
-    price: 20,
-    count: 1,
-  },
-  {
-    name: "бигбургер",
-    price: 45,
-    count: 2,
-  },
-  {
-    name: "куринные наггетсы",
-    price: 20,
-    count: 1,
-  },
-  {
-    name: "бигбургер",
-    price: 45,
-    count: 2,
-  },
-  {
-    name: "куринные наггетсы",
-    price: 20,
-    count: 1,
-  },
-  {
-    name: "бигбургер",
-    price: 45,
-    count: 2,
-  },
-  {
-    name: "куринные наггетсы",
-    price: 20,
-    count: 1,
-  },
-  {
-    name: "бигбургер",
-    price: 45,
-    count: 2,
-  },
-  {
-    name: "куринные наггетсы",
-    price: 20,
-    count: 1,
-  },
-  {
-    name: "бигбургер",
-    price: 45,
-    count: 2,
-  },
-];

@@ -178,8 +178,25 @@
 .buttonContainer {
     width: 720px;
     display: inline-flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     margin-top: 16px;
+}
+
+.clearButton {
+    border-color: whitesmoke;
+    border-radius: 4px;
+    font-size: 15px;
+    text-align: center;
+    font-weight: bold;
+    color: #fe6d02;
+    text-transform: uppercase;
+    padding: 12px 28px;
+}
+
+.clearButton:hover {
+    background-color: #EDD6A2;
+    transition-delay: 3ms;
+    cursor: pointer;
 }
 
 .proceedButton {

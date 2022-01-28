@@ -18,10 +18,9 @@ export const signupUser = createAsyncThunk(
       let data = await response.json();
 
       if (response.status === 200) {
-        localStorage.setItem("token", data.token);
+        localStorage.setItem("token", data.data.token);
         localStorage.setItem("username", signUpData.userName);
-        console.log("200: ", data);
-        return { ...data };
+        return { ...data.data };
       } else {
         console.log("data", data);
         return thunkAPI.rejectWithValue(data);

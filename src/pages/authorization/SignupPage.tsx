@@ -6,7 +6,7 @@ import { SignUpType } from "../../api/types/SignupType";
 import { signupUser } from "../../modules/user/SignupUserThunk";
 import { clearState } from "../../modules/user/UserSlice";
 import { Input } from "../../ui/input/Input";
-import { NavLink } from "react-router-dom";
+import { NavLink, Redirect, useHistory } from "react-router-dom";
 import styles from "./styles.module.css";
 
 type InputsSignUp = {
@@ -20,8 +20,9 @@ export const SignupPage = () => {
   const { register, handleSubmit } = useForm<InputsSignUp>();
   const dispatch = useAppDispatch();
   const { token, isSuccess, isError, errorMessage } = useAppSelector(userSelector);
+  const history = useHistory();
 
-  const onSubmit: SubmitHandler<InputsSignUp> = (data) => {
+  const onSubmit: SubmitHandler<InputsSignUp> = async (data) => {
     let signUpData: SignUpType = {
       userName: "",
       email: "",
@@ -32,7 +33,9 @@ export const SignupPage = () => {
       signUpData.email = data.email;
       signUpData.password = data.password;
     }
-    dispatch(signupUser(signUpData));
+    await dispatch(signupUser(signUpData));
+    history.push("/");
+    window.location.reload();
   };
 
   useEffect(() => {
@@ -52,7 +55,9 @@ export const SignupPage = () => {
     }
   }, [isSuccess, isError]);
 
-  return (
+  return !!token ? (
+    <Redirect to="/" />
+  ) : (
     <div className={styles.signInPage}>
       <div className={styles.formWrapper}>
         <form onSubmit={handleSubmit(onSubmit)}>

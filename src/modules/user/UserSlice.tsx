@@ -24,7 +24,6 @@ export const userSlice = createSlice({
       return state;
     },
     signOut: (state) => {
-      state.avatarUrl = "";
       state.token = "";
       state.username = "";
     },
