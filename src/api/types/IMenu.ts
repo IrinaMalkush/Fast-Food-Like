@@ -1,22 +1,22 @@
 interface IPriceList {
-    pricename: string;
-    price: string;
+  pricename: string;
+  price: number;
 }
 
 export interface IMenuItem {
-    id: string;
-    image: string;
-    fullimage: string;
-    name: string;
-    description: string;
-    pricelist: IPriceList[]
+  id: string;
+  image: string;
+  fullimage: string;
+  name: string;
+  description: string;
+  pricelist: IPriceList[];
 }
 
 export interface IMenuList {
-    items: IMenuItem[];
-    total: number,
-    isFetching: boolean,
-    isSuccess: boolean,
-    isError: boolean,
-    errorMessage?: string
+  items: IMenuItem[];
+  total: number;
+  isFetching: boolean;
+  isSuccess: boolean;
+  isError: boolean;
+  errorMessage?: string;
 }

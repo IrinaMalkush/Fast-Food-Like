@@ -1,10 +1,10 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { AddGoodsType } from "../../api/types/AddGoodsType";
+import { ICartProps } from "../../api/types/AddGoodsType";
 import { baseUrl } from "../../api/BaseUrl";
 
 export const addGoods = createAsyncThunk(
   "cart/addGoods",
-  async (goodsData: AddGoodsType, thunkAPI) => {
+  async (goodsData: ICartProps, thunkAPI) => {
     try {
       const response = await fetch(`${baseUrl}/cart`, {
         method: "POST",

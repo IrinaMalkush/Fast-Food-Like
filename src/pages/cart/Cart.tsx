@@ -1,20 +1,20 @@
 import React, { ReactElement, useEffect, useState } from "react";
 import styles from "./styles.module.css";
-import { useAppDispatch, useAppSelector } from "../../core/hooks/Hooks";
-import { cartSelector } from "../../modules/cart/CartSelector";
-import { fetchGoods } from "../../modules/cart/FetchGoodsThunk";
 import { CartItem } from "./components/CartItem";
 import { CartStepper } from "./components/CartStepper";
 import classNames from "classnames";
 import { useForm } from "react-hook-form";
+import { GetFromCart } from "../../helpers/LocalStorageRequests";
+import { ICart } from "../../api/types/AddGoodsType";
 
 export function Cart(): ReactElement {
-  const dispatch = useAppDispatch();
-  const cartItems = useAppSelector(cartSelector);
+  let [cartItems, setCartItems] = useState<ICart[]>([]);
 
   useEffect(() => {
-    dispatch(fetchGoods());
-  }, []);
+    GetFromCart().then((value) => {
+      setCartItems(value);
+    });
+  }, [cartItems]);
 
   const [currentStep, setCurrentStep] = useState(1);
   const setStep = (step: number) => {
@@ -41,14 +41,25 @@ export function Cart(): ReactElement {
       {currentStep === 1 && (
         <div className={styles.firstStep}>
           <div className={styles.itemsContainer}>
-            {cart.map((item, index) => (
-              <CartItem item={item} key={index} />
-            ))}
+            {cartItems ? (
+              cartItems.map((item) => <CartItem item={item} key={item.productId} />)
+            ) : (
+              <div>Корзина пуста</div>
+            )}
           </div>
           <div className={styles.result}>
             к оплате:{" "}
             <div className={styles.sum}>
-              {cart.reduce((sum, current) => sum + current.price * current.count, 0)} руб.
+              {cartItems
+                ? cartItems
+                    .reduce(
+                      (sum, current) =>
+                        sum + current.value.reduce((s, curr) => s + curr.price * curr.amount, 0),
+                      0,
+                    )
+                    .toFixed(2)
+                : 0}{" "}
+              руб.
             </div>
           </div>
           <div className={styles.buttonContainer}>

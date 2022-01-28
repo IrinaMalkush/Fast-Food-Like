@@ -1,12 +1,10 @@
 import React, { ReactElement } from "react";
 import { useState } from "react";
 import { Modal } from "../../../ui/modal/Modal";
-import { useAppDispatch } from "../../../core/hooks/Hooks";
-import { addGoods } from "../../../modules/cart/AddToCartThunk";
 import cart from "../../../assets/img/shoppingCardBlue.png";
 import { IMenuItem } from "../../../api/types/IMenu";
-import { AddGoodsType } from "../../../api/types/AddGoodsType";
 import styles from "../styles.module.css";
+import { AddCart } from "../../../helpers/LocalStorageRequests";
 
 interface MenuItemProps {
   element: IMenuItem;
@@ -14,16 +12,6 @@ interface MenuItemProps {
 
 export function MenuItem({ element }: MenuItemProps): ReactElement {
   const [open, setOpen] = useState<boolean>(false);
-
-  const dispatch = useAppDispatch();
-  const add = ({ productId, user }: AddGoodsType) => {
-    dispatch(
-      addGoods({
-        productId: productId,
-        user: user,
-      }),
-    );
-  };
 
   return (
     <>
@@ -46,7 +34,7 @@ export function MenuItem({ element }: MenuItemProps): ReactElement {
           <img className={styles.modalImage} src={element.fullimage} alt={element.name} />
           <div className={styles.prices}>
             {element.pricelist.length > 1 ? (
-              element.pricelist.map((item) => (
+              element.pricelist.map((item, index) => (
                 <div className={styles.price} key={item.pricename}>
                   <p className={styles.priceName}>{item.pricename}</p>
                   <div className={styles.priceCart}>
@@ -55,7 +43,14 @@ export function MenuItem({ element }: MenuItemProps): ReactElement {
                       src={cart}
                       alt={"add to cart"}
                       className={styles.cart}
-                      onClick={() => add({ productId: element.id, user: "valera" })}
+                      onClick={() =>
+                        AddCart({
+                          productId: element.id,
+                          name: element.name,
+                          type: element.pricelist[index].pricename,
+                          price: element.pricelist[index].price,
+                        })
+                      }
                     />
                   </div>
                 </div>
@@ -69,7 +64,14 @@ export function MenuItem({ element }: MenuItemProps): ReactElement {
                     src={cart}
                     alt={"add to cart"}
                     className={styles.cart}
-                    onClick={() => add({ productId: element.id, user: "valera" })}
+                    onClick={() =>
+                      AddCart({
+                        productId: element.id,
+                        name: element.name,
+                        type: element.pricelist[0].pricename,
+                        price: element.pricelist[0].price,
+                      })
+                    }
                   />
                 </div>
               </div>

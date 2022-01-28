@@ -11,18 +11,19 @@ export function Comments(): ReactElement {
 
   const dispatch = useAppDispatch();
   const commentsList = useAppSelector(commentsSelector);
-  console.log(commentsList);
+
+  let pageCount = Math.ceil(commentsList.total / 10);
 
   useEffect(() => {
     dispatch(fetchComments({ page: currentPageNumber }));
-  }, [currentPageNumber]);
+  }, [currentPageNumber, dispatch]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const clickedPage = (page: number) => {
-    setCurrentPageNumber(page);
+  const clickedPage = (selectedItem: { selected: number }): void => {
+    setCurrentPageNumber(selectedItem.selected + 1);
   };
 
   return (
@@ -63,12 +64,7 @@ export function Comments(): ReactElement {
           </div>
         ))}
       </div>
-      <Pagination
-        current={currentPageNumber}
-        total={commentsList.total}
-        onPage={10}
-        clickedPage={clickedPage}
-      />
+      <Pagination pageCount={pageCount} clickedPage={clickedPage} />
     </div>
   );
 }

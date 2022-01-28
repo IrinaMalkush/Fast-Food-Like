@@ -1,67 +1,28 @@
 import React from "react";
 import styles from "./styles.module.css";
+import ReactPaginate from "react-paginate";
 
 interface IProps {
-  current: number;
-  total: number;
-  onPage: number;
-  clickedPage: (page: number) => void;
+  pageCount: number;
+  clickedPage: (selectedItem: { selected: number }) => void;
 }
 
-export function Pagination({ current, total, clickedPage, onPage }: IProps) {
-  const pageNumbers = [];
-  for (let i = 1; i <= Math.ceil(total / onPage); i++) {
-    pageNumbers.push(i);
-  }
-
+export function Pagination({ pageCount, clickedPage }: IProps) {
   return (
-    <ul className={styles.pagination}>
-      <li className={current === 1 ? styles.disabled : styles.page}>
-        <span
-          onClick={() => {
-            clickedPage(1);
-          }}
-        >
-          &laquo;
-        </span>
-      </li>
-      <li className={current === 1 ? styles.disabled : styles.page}>
-        <span
-          onClick={() => {
-            clickedPage(current - 1);
-          }}
-        >
-          &lt;
-        </span>
-      </li>
-      {pageNumbers.map((number) => (
-        <li key={number}>
-          <span
-            className={current === number ? styles.currentNumber : styles.page}
-            onClick={() => clickedPage(number)}
-          >
-            {number}
-          </span>
-        </li>
-      ))}
-      <li className={current === total ? styles.disabled : styles.page}>
-        <span
-          onClick={() => {
-            clickedPage(current + 1);
-          }}
-        >
-          &gt;
-        </span>
-      </li>
-      <li className={current === total ? styles.disabled : styles.page}>
-        <span
-          onClick={() => {
-            clickedPage(total);
-          }}
-        >
-          &raquo;
-        </span>
-      </li>
-    </ul>
+    <ReactPaginate
+      previousLabel={"<"}
+      nextLabel={">"}
+      breakLabel={"..."}
+      pageCount={pageCount}
+      onPageChange={clickedPage}
+      pageRangeDisplayed={3}
+      marginPagesDisplayed={1}
+      containerClassName={styles.pageContainer}
+      previousLinkClassName={styles.prevNext}
+      nextLinkClassName={styles.prevNext}
+      activeClassName={styles.activePage}
+      pageLinkClassName={styles.pageLink}
+      disabledClassName={styles.disabled}
+    />
   );
 }

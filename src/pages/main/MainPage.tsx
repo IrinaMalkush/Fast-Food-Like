@@ -16,6 +16,8 @@ export function MainPage(): ReactElement {
 
   const dispatch = useAppDispatch();
   const newsList = useAppSelector(newsSelector);
+  console.log("newsList: ", newsList);
+  let pageCount = Math.ceil(newsList.total / itemsOnPage);
 
   useEffect(() => {
     dispatch(fetchNews({ page: currentPageNumber, pageSize: itemsOnPage }));
@@ -29,9 +31,9 @@ export function MainPage(): ReactElement {
     setItemsOnPage(page);
   };
 
-  const clickedPage = (page: number) => {
-    setCurrentPageNumber(page);
-    dispatch(fetchNews({ page: page, pageSize: itemsOnPage }));
+  const clickedPage = (selectedItem: { selected: number }): void => {
+    setCurrentPageNumber(selectedItem.selected + 1);
+    // dispatch(fetchNews({ page: selectedItem.selected + 1, pageSize: itemsOnPage }));
   };
 
   const currentPageNews = newsList ? (
@@ -53,12 +55,7 @@ export function MainPage(): ReactElement {
       <p className={styles.newsTitle}>Новости Fast Food Like</p>
       {currentPageNews}
       <div className={styles.paginationContainer}>
-        <Pagination
-          current={currentPageNumber}
-          total={newsList.total}
-          clickedPage={clickedPage}
-          onPage={itemsOnPage}
-        />
+        <Pagination pageCount={pageCount} clickedPage={clickedPage} />
       </div>
       <NumberOfItemsOnPage selectNumberOfItems={selectNumberOfItems} />
     </div>

@@ -13,16 +13,21 @@ export function Menu(): ReactElement {
 
   useEffect(() => {
     dispatch(fetchMenuParts(null));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  let [currentMenuTab, setCurrentMenuTab] = useState<string>(menuTabsList.items[0].id);
+  let [currentMenuTab, setCurrentMenuTab] = useState<string>(menuTabsList.items[0]?.id);
   const changeCurrentMenuTab = (newTab: string) => {
     setCurrentMenuTab(newTab);
   };
+
+  useEffect(() => {
+    changeCurrentMenuTab(menuTabsList.items[0]?.id);
+  }, [menuTabsList]);
 
   return (
     <div className={styles.menuContainer}>
@@ -35,7 +40,7 @@ export function Menu(): ReactElement {
               </li>
             ))
           ) : (
-            <></>
+            <Loader />
           )}
         </ul>
       </div>

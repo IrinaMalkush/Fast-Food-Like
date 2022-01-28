@@ -14,7 +14,7 @@ export function MenuContent({ categoryId }: FetchMenuType): ReactElement {
 
   useEffect(() => {
     dispatch(fetchMenu({ categoryId: categoryId }));
-  }, [categoryId]);
+  }, [categoryId, dispatch]);
 
   return (
     <div className={styles.menuItemsContainer}>
