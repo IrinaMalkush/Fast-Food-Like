@@ -1,23 +1,42 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { FetchCommentsType } from "../../api/types/FetchCommentsType";
-import { baseUrl } from "../../api/BaseUrl";
+import { baseExternalUrl } from "../../api/BaseUrl";
+
+interface CommentsDto {
+  id: string;
+  commentatorName: string;
+  title: string;
+  description: string;
+  creationTime: string;
+}
 
 export const fetchComments = createAsyncThunk(
   "comments",
-  async ({ page }: FetchCommentsType, ThunkAPI) => {
+  async ({ page, pageSize }: FetchCommentsType, ThunkAPI) => {
     try {
-      const response = await fetch(`${baseUrl}/comments?_page=${page}`, {
-        method: "GET",
+      const response = await fetch(`${baseExternalUrl}/api/v1/comments/search`, {
+        method: "POST",
         headers: {
           Accept: "application/json",
+          tenantKey: "root",
           "Content-Type": "application/json",
         },
+        body: JSON.stringify({
+          pageNumber: page,
+          pageSize: pageSize,
+        }),
       });
       let data = await response.json();
 
       if (response.status === 200) {
-        console.log(data);
-        return { ...data };
+        let items = data.data.map((item: CommentsDto) => ({
+          id: item.id,
+          name: item.title,
+          date: item.creationTime,
+          text: item.description,
+        }));
+        let total = data.totalCount;
+        return { items, total };
       } else {
         console.log("data: ", data);
         return ThunkAPI.rejectWithValue(data);

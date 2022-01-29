@@ -1,20 +1,27 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { ICartProps } from "../../api/types/AddGoodsType";
-import { baseUrl } from "../../api/BaseUrl";
+import { baseExternalUrl } from "../../api/BaseUrl";
 
-export const addGoods = createAsyncThunk(
+interface IPayment {
+  cartSum: string;
+  bearer: string | null;
+}
+
+export const ImplementPayment = createAsyncThunk(
   "cart/addGoods",
-  async (goodsData: ICartProps, thunkAPI) => {
+  async ({ cartSum, bearer }: IPayment, thunkAPI) => {
+    console.log("token: ", bearer);
     try {
-      const response = await fetch(`${baseUrl}/cart`, {
+      const response = await fetch(`${baseExternalUrl}/api/v1/payment?totalCount=${cartSum}`, {
         method: "POST",
         headers: {
+          tenantKey: "root",
+          Authorization: `Bearer ${bearer}`,
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(goodsData),
       });
-      let data = await response.json();
+      let data = await response.text();
       if (response.status === 200) {
+        window.open(data, "_blank");
         return;
       } else {
         console.log("data", data);

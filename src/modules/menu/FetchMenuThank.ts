@@ -27,7 +27,7 @@ export const fetchMenu = createAsyncThunk(
         },
         body: JSON.stringify({
           pageNumber: 1,
-          pageSize: 10,
+          pageSize: 100,
           categoryId: categoryId,
           /* pageNumber: page,
         pageSize: pageSize,*/
@@ -38,8 +38,8 @@ export const fetchMenu = createAsyncThunk(
       if (response.status === 200) {
         let items = data.data.map((item: IProductDto, index: number) => ({
           id: item.id,
-          image: "https://picsum.photos/200/" + (300 + index), // TODO need get image from server
-          fullimage: "https://picsum.photos/200/" + (300 + index),
+          image: `https://picsum.photos/201/` + (300 + index),
+          fullimage: "https://picsum.photos/210/" + (310 + index),
           name: item.name,
           description: item.description,
           pricelist: item.prices.map((item: IPrices) => ({

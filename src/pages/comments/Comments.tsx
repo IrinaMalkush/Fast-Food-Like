@@ -5,6 +5,7 @@ import { fetchComments } from "../../modules/comment/FetchCommentsThunk";
 import { commentsSelector } from "../../modules/comment/CommentsSelector";
 import { Pagination } from "../../ui/pagination/Pagination";
 import { AddComment } from "./AddComment";
+import { DateFormat } from "../../helpers/DateFormat";
 
 export function Comments(): ReactElement {
   const [currentPageNumber, setCurrentPageNumber] = useState(1);
@@ -15,7 +16,7 @@ export function Comments(): ReactElement {
   let pageCount = Math.ceil(commentsList.total / 10);
 
   useEffect(() => {
-    dispatch(fetchComments({ page: currentPageNumber }));
+    dispatch(fetchComments({ page: currentPageNumber, pageSize: 15 }));
   }, [currentPageNumber, dispatch]);
 
   useEffect(() => {
@@ -46,7 +47,9 @@ export function Comments(): ReactElement {
                 <span className={styles.name}>{item.name}:</span>
                 {item.text}
               </p>
-              <div className={styles.date}>{item.date}</div>
+              <div className={styles.date}>
+                <DateFormat date={item.date} />
+              </div>
             </div>
             {item.comment &&
               item.comment.map((innerItem) => (

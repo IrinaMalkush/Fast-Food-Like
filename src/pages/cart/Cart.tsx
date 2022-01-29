@@ -6,6 +6,8 @@ import classNames from "classnames";
 import { useForm } from "react-hook-form";
 import { ClearCart, GetFromCart } from "../../helpers/LocalStorageRequests";
 import { ICart } from "../../api/types/AddGoodsType";
+import { useAppDispatch } from "../../core/hooks/Hooks";
+import { ImplementPayment } from "../../modules/cart/AddToCartThunk";
 
 export function Cart(): ReactElement {
   let [cartItems, setCartItems] = useState<ICart[]>([]);
@@ -14,7 +16,21 @@ export function Cart(): ReactElement {
     GetFromCart().then((value) => {
       setCartItems(value);
     });
+    setSum();
   }, [cartItems]);
+
+  const [totalSum, setTotalSum] = useState("");
+  const setSum = () => {
+    setTotalSum(
+      cartItems
+        .reduce(
+          (sum, current) =>
+            sum + current.value.reduce((s, curr) => s + curr.price * curr.amount, 0),
+          0,
+        )
+        .toFixed(2),
+    );
+  };
 
   const [currentStep, setCurrentStep] = useState(1);
   const setStep = (step: number) => {
@@ -25,8 +41,17 @@ export function Cart(): ReactElement {
 
   const { register, handleSubmit } = useForm();
 
-  function onSubmitButton(data: any) {
-    console.log(data);
+  const dispatch = useAppDispatch();
+
+  function onSubmitButton() {
+    setStep(3);
+    dispatch(
+      ImplementPayment({
+        cartSum: (+totalSum * 100).toFixed(0),
+        bearer: localStorage.getItem("token"),
+      }),
+    );
+    ClearCart();
   }
 
   return (
@@ -43,19 +68,7 @@ export function Cart(): ReactElement {
             )}
           </div>
           <div className={styles.result}>
-            к оплате:{" "}
-            <div className={styles.sum}>
-              {cartItems
-                ? cartItems
-                    .reduce(
-                      (sum, current) =>
-                        sum + current.value.reduce((s, curr) => s + curr.price * curr.amount, 0),
-                      0,
-                    )
-                    .toFixed(2)
-                : 0}{" "}
-              руб.
-            </div>
+            к оплате: <div className={styles.sum}>{cartItems ? totalSum : 0} руб.</div>
           </div>
           <div className={styles.buttonContainer}>
             <button className={styles.clearButton} onClick={() => ClearCart()}>
@@ -70,19 +83,7 @@ export function Cart(): ReactElement {
       {currentStep === 2 && (
         <div className={styles.orderContainer}>
           <div className={classNames(styles.itemName, styles.toPay)}>
-            Итого к оплате:{" "}
-            <div className={styles.sum}>
-              {cartItems
-                ? cartItems
-                    .reduce(
-                      (sum, current) =>
-                        sum + current.value.reduce((s, curr) => s + curr.price * curr.amount, 0),
-                      0,
-                    )
-                    .toFixed(2)
-                : 0}{" "}
-              руб.
-            </div>
+            Итого к оплате: <div className={styles.sum}>{cartItems ? totalSum : 0} руб.</div>
           </div>
           <div className={styles.itemName}>Выберете способ доставки:</div>
           <form onSubmit={handleSubmit(onSubmitButton)}>
@@ -143,6 +144,13 @@ export function Cart(): ReactElement {
               </button>
             </div>
           </form>
+        </div>
+      )}
+      {currentStep === 3 && (
+        <div className={styles.orderContainer}>
+          <div className={styles.sum}>
+            Заказ оформлен! Сейчас откроется новая вкладка для оплаты!
+          </div>
         </div>
       )}
     </>

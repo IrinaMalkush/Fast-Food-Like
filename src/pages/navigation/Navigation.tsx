@@ -21,7 +21,7 @@ export function Navigation(): ReactElement {
               activeClassName={classNames(styles.menuButton, styles.active)}
               className={styles.menuButton}
             >
-              Главная
+              Новости
             </NavLink>
           </li>
           <li>
@@ -67,15 +67,6 @@ export function Navigation(): ReactElement {
               className={styles.menuButton}
             >
               Отзывы
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to={"/gallery"}
-              activeClassName={classNames(styles.menuButton, styles.active)}
-              className={styles.menuButton}
-            >
-              Галерея
             </NavLink>
           </li>
         </ul>

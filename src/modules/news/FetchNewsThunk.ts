@@ -27,7 +27,7 @@ export const fetchNews = createAsyncThunk(
         }),
       });
       let data = await response.json();
-      console.log("data: ", data);
+
       if (response.status === 200) {
         let items = data.data.map((item: NewsDto, index: number) => ({
           dateOfNew: item.creationTime,

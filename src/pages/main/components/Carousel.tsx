@@ -1,8 +1,7 @@
 import React, { ReactElement } from "react";
 import { useEffect, useState } from "react";
-import { useAppDispatch, useAppSelector } from "../../../core/hooks/Hooks";
-import { carouselSelector } from "../../../modules/carousel/CarouselSelector";
-import { fetchCarousel } from "../../../modules/carousel/FetchCarouselThank";
+import { useAppDispatch } from "../../../core/hooks/Hooks";
+import { banner, fetchCarousel } from "../../../modules/carousel/FetchCarouselThank";
 import { ICarouselItem } from "../../../api/types/ICarousel";
 import { Indicators } from "./Indicators";
 import classNames from "classnames";
@@ -10,8 +9,9 @@ import styles from "../styles.module.css";
 
 export function Carousel(): ReactElement {
   const dispatch = useAppDispatch();
-  const carouselList = useAppSelector(carouselSelector);
-
+  // const carouselList = useAppSelector(carouselSelector);
+  const carouselList = banner;
+  console.log("carousel: ", carouselList);
   let [currentPhotoIndex, setCurrentIndex] = useState<number>(0);
   const currentPhoto = carouselList.items[currentPhotoIndex];
 

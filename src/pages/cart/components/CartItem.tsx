@@ -13,7 +13,7 @@ export const CartItem = ({ item }: CartItemProps): ReactElement => {
       <div className={styles.itemName}>{item.name}</div>
       <div className={styles.typesContainer}>
         {item.value.map((i) => (
-          <CartType item={i} productId={item.productId} />
+          <CartType item={i} productId={item.productId} key={item.productId} />
         ))}
       </div>
     </div>
