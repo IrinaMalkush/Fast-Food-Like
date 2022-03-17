@@ -5,9 +5,9 @@ import { fetchNews } from "../../modules/news/FetchNewsThunk";
 import { NewsFeed } from "./components/NewsFeed";
 import { INewsItem } from "../../api/types/INew";
 import { Carousel } from "./components/Carousel";
-import styles from "./styles.module.css";
 import { Pagination } from "../../ui/pagination/Pagination";
 import { NumberOfItemsOnPage } from "../../ui/pagination/NumberOfItemsOnPage";
+import styled from "styled-components";
 
 export function MainPage(): ReactElement {
   const [currentPageNumber, setCurrentPageNumber] = useState(1);
@@ -43,9 +43,9 @@ export function MainPage(): ReactElement {
   ));
 
   return (
-    <div className={styles.container}>
+    <Container>
       <Carousel />
-      <p className={styles.newsTitle}>Новости Fast Food Like</p>
+      <NewsTitle>Новости Fast Food Like</NewsTitle>
       {currentPageNews}
       <Pagination
         current={currentPageNumber}
@@ -54,6 +54,29 @@ export function MainPage(): ReactElement {
         onPage={itemsOnPage}
       />
       <NumberOfItemsOnPage selectNumberOfItems={selectNumberOfItems} />
-    </div>
+    </Container>
   );
 }
+
+const Container = styled.div`
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+`;
+
+const NewsTitle = styled.p`
+  font-size: 25px;
+  font-weight: bold;
+  font-family: var(--base-font);
+  color: #948865;
+
+  @media screen and (max-width: 522px) {
+    font-size: 20px;
+  }
+
+  @media screen and (max-width: 354px) {
+    font-size: 15px;
+  }
+`;

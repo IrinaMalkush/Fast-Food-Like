@@ -2,9 +2,9 @@ import * as React from "react";
 import styles from "./App.module.css";
 import theme from "./styles/theme.module.css";
 import classNames from "classnames";
-import { Header } from "./pages/header/Header";
-import { Navigation } from "./pages/navigation/Navigation";
-import { PageFooter } from "./pages/footer/PageFooter";
+import { Header } from "./components/header/Header";
+import { Navigation } from "./components/navigation/Navigation";
+import { PageFooter } from "./components/footer/PageFooter";
 import { useState } from "react";
 
 function App() {

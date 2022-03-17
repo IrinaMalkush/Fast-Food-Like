@@ -1,5 +1,5 @@
 import React, { ReactElement, useEffect } from "react";
-import { newsList } from "../../componentsss/NewsList";
+import { newsList } from "../../components/NewsList";
 import styles from "./styles.module.css";
 
 export function Events(): ReactElement {

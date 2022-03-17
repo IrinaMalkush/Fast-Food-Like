@@ -5,7 +5,7 @@ import insta from "../../assets/img/insta.png";
 import cart from "../../assets/img/shoppingCardWhite.png";
 import styles from "./styles.module.css";
 import { Modal } from "../../ui/modal/Modal";
-import { Cart } from "../cart/Cart";
+import { Cart } from "../../pages/cart/Cart";
 
 export function Header(): ReactElement {
   const [open, setOpen] = useState<boolean>(false);

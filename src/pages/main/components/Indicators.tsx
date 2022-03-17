@@ -1,7 +1,6 @@
 import React, { ReactElement } from "react";
 import { ICarouselItem } from "../../../api/types/ICarousel";
-import classNames from "classnames";
-import styles from "../styles.module.css";
+import styled from "styled-components";
 
 interface IIndicatorsProps {
   element: ICarouselItem;
@@ -15,14 +14,26 @@ export function Indicators({
   onClick,
 }: IIndicatorsProps): ReactElement {
   return (
-    <button
-      className={
-        currentPhotoIndex === element.id
-          ? classNames(styles.indicator, styles.isCurrent)
-          : styles.indicator
-      }
+    <Circle
+      $current={currentPhotoIndex === element.id}
       tabIndex={currentPhotoIndex ? -1 : 0}
       onClick={onClick}
     />
   );
 }
+
+const Circle = styled.button<{ $current: boolean }>`
+  width: 10px;
+  height: ${(p) => (p.$current ? "15px" : "12px")};
+  background-color: ${(p) => (p.$current ? "#6282ad" : "var(--background100)")};
+  border-radius: 50%;
+  border: ${(p) => (p.$current ? "2px solid #efede3" : "none")};
+  margin: 4px;
+  box-shadow: var(--base-shadow);
+  opacity: 0.7;
+
+  &:focus {
+    outline: none;
+    box-shadow: var(--base-shadow-border);
+  }
+`;

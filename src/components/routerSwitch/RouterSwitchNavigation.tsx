@@ -1,15 +1,15 @@
 import React, { ReactElement } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
-import { MainPage } from "../main/MainPage";
-import { Menu } from "../foodMenu/Menu";
-import { Delivery } from "../delivery/Delivery";
-import { Events } from "../events/Events";
-import { Contacts } from "../contacts/Contacts";
-import { Comments } from "../comments/Comments";
-import { Gallery } from "../gallery/Gallery";
-import { NoPageFound } from "../notFound/NoPageFound";
-import { LoginPage } from "../authorization/LoginPage";
-import { SignupPage } from "../authorization/SignupPage";
+import { MainPage } from "../../pages/main/MainPage";
+import { Menu } from "../../pages/foodMenu/Menu";
+import { Delivery } from "../../pages/delivery/Delivery";
+import { Events } from "../../pages/events/Events";
+import { Contacts } from "../../pages/contacts/Contacts";
+import { Comments } from "../../pages/comments/Comments";
+import { Gallery } from "../../pages/gallery/Gallery";
+import { NoPageFound } from "../../pages/notFound/NoPageFound";
+import { LoginPage } from "../../pages/authorization/LoginPage";
+import { SignupPage } from "../../pages/authorization/SignupPage";
 
 export function RouterSwitchNavigation(): ReactElement {
   return (

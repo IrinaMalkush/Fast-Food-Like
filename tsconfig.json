@@ -1,12 +1,16 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "outDir": "dist",
+    "checkJs": false,
+    "declaration": true,
+    "target": "ES2019",
     "module": "esnext",
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "jsx": "react",
+    "noFallthroughCasesInSwitch": true,
+    "jsx": "react-jsx",
     "lib": [
       "dom",
       "dom.iterable",
@@ -19,6 +23,11 @@
     "isolatedModules": true,
     "noEmit": true
   },
+  "plugins": [
+    {
+      "name": "typescript-styled-plugin"
+    }
+  ],
   "include": [
     "src"
   ]
