@@ -1,12 +1,66 @@
-import React, { ReactElement } from "react";
-import notFound from "../../assets/img/noPageFound.png";
-import styles from "./styles.module.css";
+import React from "react";
+import styled from "styled-components";
 
-export function NoPageFound(): ReactElement {
+import notFound from "../../assets/img/noPageFound.png";
+
+export const NoPageFound = () => {
   return (
-    <div className={styles.notFound}>
-      <img src={notFound} alt="no-page-found" />
-      <p>404... Страница не найдeна...</p>
-    </div>
+    <Wrapper>
+      <Image src={notFound} alt="no-page-found" />
+      <Text>404... Страница не найдeна...</Text>
+    </Wrapper>
   );
-}
+};
+
+const Wrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 35px;
+
+  @media screen and (max-width: 480px) {
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 35px;
+  }
+
+  @media screen and (max-width: 320px) {
+    margin-top: 20px;
+  }
+`;
+
+const Image = styled.img`
+  height: 430px;
+
+  @media screen and (max-width: 480px) {
+    width: 244px;
+    height: 417px;
+    margin-left: 15px;
+  }
+
+  @media screen and (max-width: 320px) {
+    width: 163px;
+    height: 278px;
+    margin-left: 15px;
+  }
+`;
+
+const Text = styled.p`
+  margin: 45px;
+  padding-top: 60px;
+  color: #574d32;
+  font-size: 20px;
+
+  @media screen and (max-width: 480px) {
+    margin: 15px;
+    padding-top: 0;
+    font-size: 20px;
+    text-align: right;
+  }
+
+  @media screen and (max-width: 320px) {
+    margin: 15px;
+    padding-top: 0;
+    font-size: 17px;
+    text-align: right;
+  }
+`;

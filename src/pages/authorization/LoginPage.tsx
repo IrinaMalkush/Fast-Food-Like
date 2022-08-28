@@ -1,13 +1,14 @@
+import { Input } from "like-ui-components";
 import * as React from "react";
 import { useEffect, useState } from "react";
-import { useForm, SubmitHandler } from "react-hook-form";
+import { SubmitHandler, useForm } from "react-hook-form";
 import { NavLink } from "react-router-dom";
+
 import { useAppDispatch, useAppSelector } from "../../core/hooks/Hooks";
-import { clearState } from "../../modules/user/UserSlice";
-import { userSelector } from "../../modules/user/UserSelector";
-import styles from "./styles.module.css";
 import { loginUser } from "../../modules/user/LoginUserThunk";
-import { Input } from "../../ui/input/Input";
+import { userSelector } from "../../modules/user/UserSelector";
+import { clearState } from "../../modules/user/UserSlice";
+import styles from "./styles.module.css";
 
 export type InputsLogin = {
   email: string;
@@ -35,7 +36,7 @@ export const LoginPage = () => {
     }
   }, [isSuccess]);
 
-  let [showingPassword, setShowingPassword] = useState<boolean>(false);
+  const [showingPassword, setShowingPassword] = useState<boolean>(false);
   const showPassword = () => {
     setShowingPassword(!showingPassword);
   };
@@ -52,8 +53,8 @@ export const LoginPage = () => {
       <div className={styles.formWrapper}>
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className={styles.signInWords}>Вход</div>
-          <Input name="email" ref={register} label="E-mail" inputType="inputTxt" />
-          <Input name="password" ref={register} label="Пароль" inputType="pswd" err={isError} />
+          {/*<Input name="email" ref={register} label="E-mail" inputType="inputTxt" />*/}
+          {/*<Input name="password" ref={register} label="Пароль" inputType="pswd" err={isError} />*/}
           <button type="submit" className={styles.buttonSubmit}>
             <p>Войти</p>
           </button>

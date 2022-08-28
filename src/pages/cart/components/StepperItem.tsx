@@ -1,5 +1,5 @@
 import React, { FC, memo } from "react";
-import classNames from "classnames";
+
 import styles from "../styles.module.css";
 
 interface IStepperItemProps {
@@ -12,15 +12,17 @@ export const StepperItem: FC<IStepperItemProps> = memo(({ step, active, onClick,
   return (
     <>
       <li
-        className={classNames(styles.stepLi, active ? styles.activeStep : styles.notActiveStep)}
+        // className={classNames(styles.stepLi, active ? styles.activeStep : styles.notActiveStep)}
+        className={styles.stepLi}
         onClick={() => onClick?.(step)}
       >
         <span className={styles.link}>
           <span
-            className={classNames(
-              styles.stepNumber,
-              active ? styles.activeNumber : styles.notActiveNumber,
-            )}
+            // className={classNames(
+            //   styles.stepNumber,
+            //   active ? styles.activeNumber : styles.notActiveNumber,
+            // )}
+            className={styles.stepNumber}
           >
             {step}
           </span>

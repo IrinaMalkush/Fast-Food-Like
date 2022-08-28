@@ -1,6 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { SignUpType } from "../../api/types/SignupType";
+
 import { baseExternalUrl } from "../../api/BaseUrl";
+import { SignUpType } from "../../api/types/SignupType";
 
 export const signupUser = createAsyncThunk(
   "user/signupUser",
@@ -15,7 +16,7 @@ export const signupUser = createAsyncThunk(
         },
         body: JSON.stringify(signUpData),
       });
-      let data = await response.json();
+      const data = await response.json();
 
       if (response.status === 200) {
         localStorage.setItem("token", data.token);
@@ -26,7 +27,7 @@ export const signupUser = createAsyncThunk(
         console.log("data", data);
         return thunkAPI.rejectWithValue(data);
       }
-    } catch (e) {
+    } catch (e: any) {
       console.log("Error", e.response.data);
       return thunkAPI.rejectWithValue(e.response.data);
     }

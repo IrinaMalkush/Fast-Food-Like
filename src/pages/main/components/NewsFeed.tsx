@@ -1,4 +1,4 @@
-import React, { ReactElement } from "react";
+import React from "react";
 import styled from "styled-components";
 
 interface INewsFeedProps {
@@ -7,7 +7,7 @@ interface INewsFeedProps {
   newsItem: string;
 }
 
-export function NewsFeed({ dateOfNew, image, newsItem }: INewsFeedProps): ReactElement {
+export const NewsFeed = ({ dateOfNew, image, newsItem }: INewsFeedProps) => {
   return (
     <>
       {/*newsList.sort( (a,b) =>b.id-a.id).map((element)*/}
@@ -22,7 +22,7 @@ export function NewsFeed({ dateOfNew, image, newsItem }: INewsFeedProps): ReactE
       </Content>
     </>
   );
-}
+};
 
 const Content = styled.div`
   display: flex;

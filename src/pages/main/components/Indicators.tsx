@@ -1,6 +1,7 @@
 import React, { ReactElement } from "react";
-import { ICarouselItem } from "../../../api/types/ICarousel";
 import styled from "styled-components";
+
+import { ICarouselItem } from "../../../api/types/ICarousel";
 
 interface IIndicatorsProps {
   element: ICarouselItem;

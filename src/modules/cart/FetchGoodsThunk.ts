@@ -1,4 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
+
 import { baseUrl } from "../../api/BaseUrl";
 
 export const fetchGoods = createAsyncThunk("cart/fetchGoods", async (_, thunkAPI) => {
@@ -10,7 +11,7 @@ export const fetchGoods = createAsyncThunk("cart/fetchGoods", async (_, thunkAPI
         "Content-Type": "application/json",
       },
     });
-    let data = await response.json();
+    const data = await response.json();
 
     if (response.status === 200) {
       return { ...data };
@@ -18,7 +19,7 @@ export const fetchGoods = createAsyncThunk("cart/fetchGoods", async (_, thunkAPI
       console.log("fetch goods: ", data);
       return thunkAPI.rejectWithValue(data);
     }
-  } catch (e) {
+  } catch (e: any) {
     console.log("Error", e.response.data);
     return thunkAPI.rejectWithValue(e.response.data);
   }

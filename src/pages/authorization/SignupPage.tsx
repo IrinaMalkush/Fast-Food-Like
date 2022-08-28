@@ -1,12 +1,13 @@
+import { Input } from "like-ui-components";
 import React, { useEffect } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { useAppDispatch, useAppSelector } from "../../core/hooks/Hooks";
-import { userSelector } from "../../modules/user/UserSelector";
-import { SignUpType } from "../../api/types/SignupType";
-import { signupUser } from "../../modules/user/SignupUserThunk";
-import { clearState } from "../../modules/user/UserSlice";
-import { Input } from "../../ui/input/Input";
 import { NavLink } from "react-router-dom";
+
+import { SignUpType } from "../../api/types/SignupType";
+import { useAppDispatch, useAppSelector } from "../../core/hooks/Hooks";
+import { signupUser } from "../../modules/user/SignupUserThunk";
+import { userSelector } from "../../modules/user/UserSelector";
+import { clearState } from "../../modules/user/UserSlice";
 import styles from "./styles.module.css";
 
 type InputsSignUp = {
@@ -22,7 +23,7 @@ export const SignupPage = () => {
   const { token, isSuccess, isError, errorMessage } = useAppSelector(userSelector);
 
   const onSubmit: SubmitHandler<InputsSignUp> = (data) => {
-    let signUpData: SignUpType = {
+    const signUpData: SignUpType = {
       userName: "",
       email: "",
       password: "",
@@ -57,10 +58,10 @@ export const SignupPage = () => {
       <div className={styles.formWrapper}>
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className={styles.signInWords}>Регистрация</div>
-          <Input name="userName" ref={register} label="Имя пользователя" inputType="inputTxt" />
-          <Input name="email" ref={register} label="E-mail" inputType="inputTxt" />
-          <Input name="password" ref={register} label="Пароль" inputType="pswd" />
-          <Input name="passwordRepeat" ref={register} label="Подтвердите пароль" inputType="pswd" />
+          {/*<Input name="userName" ref={register} label="Имя пользователя" inputType="inputTxt" />*/}
+          {/*<Input name="email" ref={register} label="E-mail" inputType="inputTxt" />*/}
+          {/*<Input name="password" ref={register} label="Пароль" inputType="pswd" />*/}
+          {/*<Input name="passwordRepeat" ref={register} label="Подтвердите пароль" inputType="pswd" />*/}
           <button className={styles.buttonSubmit} type="submit">
             <p>Зарегестрироваться</p>
           </button>

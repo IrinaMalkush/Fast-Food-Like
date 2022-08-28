@@ -1,6 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { AddGoodsType } from "../../api/types/AddGoodsType";
+
 import { baseUrl } from "../../api/BaseUrl";
+import { AddGoodsType } from "../../api/types/AddGoodsType";
 
 export const addGoods = createAsyncThunk(
   "cart/addGoods",
@@ -13,14 +14,14 @@ export const addGoods = createAsyncThunk(
         },
         body: JSON.stringify(goodsData),
       });
-      let data = await response.json();
+      const data = await response.json();
       if (response.status === 200) {
         return;
       } else {
         console.log("data", data);
         return thunkAPI.rejectWithValue(data);
       }
-    } catch (e) {
+    } catch (e: any) {
       console.log("Error", e.response.data);
       return thunkAPI.rejectWithValue(e.response.data);
     }

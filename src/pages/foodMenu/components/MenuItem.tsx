@@ -1,11 +1,12 @@
+import { Modal } from "like-ui-components";
 import React, { ReactElement } from "react";
 import { useState } from "react";
-import { Modal } from "../../../ui/modal/Modal";
+
+import { AddGoodsType } from "../../../api/types/AddGoodsType";
+import { IMenuItem } from "../../../api/types/IMenu";
+import cart from "../../../assets/img/shoppingCardBlue.png";
 import { useAppDispatch } from "../../../core/hooks/Hooks";
 import { addGoods } from "../../../modules/cart/AddToCartThunk";
-import cart from "../../../assets/img/shoppingCardBlue.png";
-import { IMenuItem } from "../../../api/types/IMenu";
-import { AddGoodsType } from "../../../api/types/AddGoodsType";
 import styles from "../styles.module.css";
 
 interface MenuItemProps {

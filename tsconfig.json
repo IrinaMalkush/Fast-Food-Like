@@ -23,12 +23,10 @@
     "isolatedModules": true,
     "noEmit": true
   },
-  "plugins": [
-    {
-      "name": "typescript-styled-plugin"
-    }
-  ],
   "include": [
     "src"
+  ],
+  "exclude": [
+    "node_modules",
   ]
 }

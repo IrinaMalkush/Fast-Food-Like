@@ -1,5 +1,6 @@
-import React, { Component } from "react";
 import "./InstagramGallery.css";
+
+import React, { Component } from "react";
 
 export default class extends Component {
   state = { photos: [] };
@@ -8,30 +9,29 @@ export default class extends Component {
     try {
       // Hack from https://stackoverflow.com/a/47243409/2217533
       const response = await fetch(
-        `https://www.instagram.com/graphql/query?query_id=17888483320059182&variables={"id":"${
-          this.props.userId
-        }","first":${this.props.photoCount},"after":null}`
+        `https://www.instagram.com/graphql/query?query_id=17888483320059182&variables={"id":"${this.props.userId}","first":${this.props.photoCount},"after":null}`,
       );
       const { data } = await response.json();
-      const photos = data.user.edge_owner_to_timeline_media.edges.map(
-        ({ node }) => {
-          const { id } = node;
-          const caption = node.edge_media_to_caption.edges[0] === undefined ? "" : node.edge_media_to_caption.edges[0].node.text;
-          const thumbnail = node.thumbnail_resources.find(
-            thumbnail => thumbnail.config_width === this.props.thumbnailWidth
-          );
-          const { src, config_width: width, config_height: height } = thumbnail;
-          const url = `https://www.instagram.com/p/${node.shortcode}`;
-          return {
-            id,
-            caption,
-            src,
-            width,
-            height,
-            url
-          };
-        }
-      );
+      const photos = data.user.edge_owner_to_timeline_media.edges.map(({ node }) => {
+        const { id } = node;
+        const caption =
+          node.edge_media_to_caption.edges[0] === undefined
+            ? ""
+            : node.edge_media_to_caption.edges[0].node.text;
+        const thumbnail = node.thumbnail_resources.find(
+          (thumbnail) => thumbnail.config_width === this.props.thumbnailWidth,
+        );
+        const { src, config_width: width, config_height: height } = thumbnail;
+        const url = `https://www.instagram.com/p/${node.shortcode}`;
+        return {
+          id,
+          caption,
+          src,
+          width,
+          height,
+          url,
+        };
+      });
       this.setState({ photos });
     } catch (error) {
       console.error(error);
@@ -43,7 +43,7 @@ export default class extends Component {
       <div className="photos">
         {this.state.photos &&
           this.state.photos.map(({ id, src, url }) => (
-            <a key={id} href={url} target="_blank">
+            <a key={id} href={url} target="_blank" rel="noreferrer">
               <img className="photo" src={src} />
             </a>
           ))}

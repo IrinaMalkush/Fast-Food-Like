@@ -1,15 +1,16 @@
-import React, { ReactElement, useEffect, useState } from "react";
-import { useAppDispatch, useAppSelector } from "../../core/hooks/Hooks";
-import { newsSelector } from "../../modules/news/NewsSelector";
-import { fetchNews } from "../../modules/news/FetchNewsThunk";
-import { NewsFeed } from "./components/NewsFeed";
-import { INewsItem } from "../../api/types/INew";
-import { Carousel } from "./components/Carousel";
-import { Pagination } from "../../ui/pagination/Pagination";
-import { NumberOfItemsOnPage } from "../../ui/pagination/NumberOfItemsOnPage";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 
-export function MainPage(): ReactElement {
+import { INewsItem } from "../../api/types/INew";
+import { useAppDispatch, useAppSelector } from "../../core/hooks/Hooks";
+import { fetchNews } from "../../modules/news/FetchNewsThunk";
+import { newsSelector } from "../../modules/news/NewsSelector";
+import { NumberOfItemsOnPage } from "../common/pagination/NumberOfItemsOnPage";
+import { Pagination } from "../common/pagination/Pagination";
+import { Carousel } from "./components/Carousel";
+import { NewsFeed } from "./components/NewsFeed";
+
+export const MainPage = () => {
   const [currentPageNumber, setCurrentPageNumber] = useState(1);
   const [itemsOnPage, setItemsOnPage] = useState(10);
 
@@ -56,7 +57,7 @@ export function MainPage(): ReactElement {
       <NumberOfItemsOnPage selectNumberOfItems={selectNumberOfItems} />
     </Container>
   );
-}
+};
 
 const Container = styled.div`
   box-sizing: border-box;

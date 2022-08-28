@@ -1,52 +1,38 @@
-import React, { ReactElement, useState } from "react";
-import { SocialLink } from "../../ui/socialLink/SocialLink";
+import React from "react";
+import styled from "styled-components";
+
 import logo from "../../assets/img/logo.jpg";
-import insta from "../../assets/img/insta.png";
-import cart from "../../assets/img/shoppingCardWhite.png";
-import styles from "./styles.module.css";
-import { Modal } from "../../ui/modal/Modal";
-import { Cart } from "../../pages/cart/Cart";
+import { Phones } from "./components/Phones";
+import { RightBlock } from "./components/RightBlock";
 
-export function Header(): ReactElement {
-  const [open, setOpen] = useState<boolean>(false);
-
+export const Header = () => {
   return (
-    <div className={styles.headerContainer}>
-      <div>
-        <div className={styles.phones}>
-          <div className={styles.icon}>&#9742;</div>
-          <p>0(533)55455</p>
-          <p> - Тирасполь</p>
-        </div>
-        <div className={styles.phones}>
-          <div className={styles.icon}>&#9742;</div>
-          <p>0(775)05057</p>
-          <p> - Бендеры</p>
-        </div>
-      </div>
-      <div className={styles.logo}>
-        <a href="/">
-          <img src={logo} alt="fast-food-like-logo" />
-        </a>
-      </div>
-      <div className={styles.rightBlock}>
-        <nav className={styles.socialLinks}>
-          <a href="https://www.instagram.com/like_pmr/" className={styles.linkText}>
-            мы в Instagram:
-          </a>
-          <SocialLink
-            href="https://www.instagram.com/like_pmr/"
-            title="instagram.com"
-            src={insta}
-          />
-        </nav>
-        <div className={styles.cartWrapper}>
-          <img src={cart} alt={"корзина"} className={styles.cart} onClick={() => setOpen(!open)} />
-        </div>
-        <Modal isOpen={open} onClose={() => setOpen(false)}>
-          <Cart />
-        </Modal>
-      </div>
-    </div>
+    <HeaderContainer>
+      <Phones />
+      <Logo>
+        <Link href="/">
+          <Image src={logo} alt="fast-food-like-logo" />
+        </Link>
+      </Logo>
+      <RightBlock />
+    </HeaderContainer>
   );
-}
+};
+
+const HeaderContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+
+const Logo = styled.div`
+  height: 170px;
+  width: 170px;
+  margin: 0 15px;
+`;
+
+const Link = styled.a``;
+
+const Image = styled.img`
+  height: 100%;
+  border-radius: 8px;
+`;

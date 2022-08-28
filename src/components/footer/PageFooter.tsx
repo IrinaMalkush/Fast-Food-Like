@@ -1,75 +1,56 @@
-import React, { ReactElement } from "react";
-import { NavLink } from "react-router-dom";
-import instaBW from "../../assets/img/instabw.png";
-import styles from "./styles.module.css";
+import React from "react";
+import styled from "styled-components";
 
-export function PageFooter(): ReactElement {
+import { Contacts } from "./components/Contacts";
+import { FooterMenu } from "./components/FooterMenu";
+
+export const PageFooter = () => {
   return (
-    <div className={styles.footer}>
-      <div>
-        <ul className={styles.menu}>
-          <li>
-            <NavLink to={"/"}>Главная</NavLink>
-            <span>|</span>
-          </li>
-          <li>
-            <NavLink to={"/menu"}>Меню</NavLink>
-            <span>|</span>
-          </li>
-          <li>
-            <NavLink to={"/delivery"}>Доставка</NavLink>
-            <span>|</span>
-          </li>
-          <li>
-            <NavLink to={"/events"}>Акции</NavLink>
-            <span>|</span>
-          </li>
-          <li>
-            <NavLink to={"/contacts"}>Контакты</NavLink>
-            <span>|</span>
-          </li>
-          <li>
-            <NavLink to={"/comments"}>Отзывы</NavLink>
-            <span>|</span>
-          </li>
-          <li>
-            <NavLink to={"/gallery"}>Галерея</NavLink>
-          </li>
-        </ul>
-      </div>
-
-      <div className={styles.contacts}>
-        <div className={styles.phone}>
-          <p>&#x260E; Телефон: 0 (775) 05057</p>
-        </div>
-        <div className={styles.linksMenu}>
-          <a
-            target="_blank"
-            href="https://www.instagram.com/like_pmr/"
-            rel="noopener noreferrer"
-            className={styles.links}
-          >
-            <img src={instaBW} alt="instagram-link" />
-            <p className={styles.linkName}>- Instagram</p>
-          </a>
-        </div>
-        <div className={styles.addresses}>
-          <p>
-            <span role="img" aria-label="like">
-              &#x1F44D;
-            </span>{" "}
-            Бендеры, ул.Суворова, остановка троллейбусов 2, 3 и 4 возле школы бокса
-          </p>
-          <p>
-            <span role="img" aria-label="like">
-              &#x1F44D;
-            </span>{" "}
-            г. Тирасполь, ул. Свердлова 36, ТЦ "ЛИМО"
-          </p>
-        </div>
-      </div>
-      <p className={styles.copyright}>2018-2022 &copy; Fast Food Like</p>
-      <p className={styles.copyDev}>Разработка сайта: Ирина Долгонюк</p>
-    </div>
+    <Footer>
+      <FooterMenu />
+      <Contacts />
+      <Copyright>2018-2022 &copy; Fast Food Like</Copyright>
+      <CopyDev>Разработка сайта: Ирина Долгонюк</CopyDev>
+    </Footer>
   );
-}
+};
+
+const Footer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const Copyright = styled.p`
+  font-family: ${({ theme }) => theme.systemColors.white};
+  color: #948865;
+  margin: 10px 0 0 0;
+  font-size: 14px;
+
+  @media screen and (max-width: 768px) {
+    margin: 8px 0 10px 0;
+    font-size: 12px;
+  }
+
+  @media screen and (max-width: 480px) {
+    margin: 8px 0 10px 0;
+    font-size: 12px;
+  }
+`;
+
+const CopyDev = styled.p`
+  color: #948865;
+  margin: 0 15px 15px 0;
+  font-size: 12px;
+  align-self: flex-end;
+
+  @media screen and (max-width: 768px) {
+    margin: 0 10px 10px 0;
+    font-size: 12px;
+  }
+
+  @media screen and (max-width: 480px) {
+    margin: 0 8px 8px 0;
+    font-size: 10px;
+  }
+`;

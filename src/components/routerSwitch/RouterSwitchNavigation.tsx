@@ -1,17 +1,18 @@
-import React, { ReactElement } from "react";
-import { Switch, Route, Redirect } from "react-router-dom";
-import { MainPage } from "../../pages/main/MainPage";
-import { Menu } from "../../pages/foodMenu/Menu";
-import { Delivery } from "../../pages/delivery/Delivery";
-import { Events } from "../../pages/events/Events";
-import { Contacts } from "../../pages/contacts/Contacts";
-import { Comments } from "../../pages/comments/Comments";
-import { Gallery } from "../../pages/gallery/Gallery";
-import { NoPageFound } from "../../pages/notFound/NoPageFound";
+import React from "react";
+import { Redirect, Route, Switch } from "react-router-dom";
+
 import { LoginPage } from "../../pages/authorization/LoginPage";
 import { SignupPage } from "../../pages/authorization/SignupPage";
+import { Comments } from "../../pages/comments/Comments";
+import { Contacts } from "../../pages/contacts/Contacts";
+import { Delivery } from "../../pages/delivery/Delivery";
+import { Events } from "../../pages/events/Events";
+import { Menu } from "../../pages/foodMenu/Menu";
+import { Gallery } from "../../pages/gallery/Gallery";
+import { MainPage } from "../../pages/main/MainPage";
+import { NoPageFound } from "../../pages/notFound/NoPageFound";
 
-export function RouterSwitchNavigation(): ReactElement {
+export const RouterSwitchNavigation = () => {
   return (
     <Switch>
       <Route exact path="/" component={MainPage} />
@@ -27,4 +28,4 @@ export function RouterSwitchNavigation(): ReactElement {
       <Redirect to="/notfound" />
     </Switch>
   );
-}
+};

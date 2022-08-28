@@ -1,4 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
+
 import { baseUrl } from "../../api/BaseUrl";
 
 export type InputsLogin = {
@@ -18,7 +19,7 @@ export const loginUser = createAsyncThunk(
         },
         body: JSON.stringify(loginData),
       });
-      let data = await response.json();
+      const data = await response.json();
 
       if (response.status === 200) {
         localStorage.setItem("token", data.token);
@@ -30,7 +31,7 @@ export const loginUser = createAsyncThunk(
       } else {
         return thunkAPI.rejectWithValue(data);
       }
-    } catch (e) {
+    } catch (e: any) {
       console.log("Error", e.response.data);
       thunkAPI.rejectWithValue(e.response.data);
     }

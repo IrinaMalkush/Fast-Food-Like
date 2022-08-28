@@ -1,6 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { FetchCommentsType } from "../../api/types/FetchCommentsType";
+
 import { baseUrl } from "../../api/BaseUrl";
+import { FetchCommentsType } from "../../api/types/FetchCommentsType";
 
 export const fetchComments = createAsyncThunk(
   "comments",
@@ -13,7 +14,7 @@ export const fetchComments = createAsyncThunk(
           "Content-Type": "application/json",
         },
       });
-      let data = await response.json();
+      const data = await response.json();
 
       if (response.status === 200) {
         console.log(data);
@@ -22,7 +23,7 @@ export const fetchComments = createAsyncThunk(
         console.log("data: ", data);
         return ThunkAPI.rejectWithValue(data);
       }
-    } catch (e) {
+    } catch (e: any) {
       console.log("Error: ", e.response.data);
       return ThunkAPI.rejectWithValue(e.response.data);
     }

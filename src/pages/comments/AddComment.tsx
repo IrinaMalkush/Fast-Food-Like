@@ -1,9 +1,10 @@
-import React, { ReactElement, useState } from "react";
-import { useForm, SubmitHandler, Path } from "react-hook-form";
-import { Modal } from "../../ui/modal/Modal";
+import { Loader, Modal } from "like-ui-components";
+import React, { useState } from "react";
+import { Path, SubmitHandler, useForm } from "react-hook-form";
+import styled, { keyframes } from "styled-components";
+
+import { Speech } from "./Comments";
 import styles from "./styles.module.css";
-import { Loader } from "../../ui/loader/Loader";
-import classNames from "classnames";
 
 interface IFormInput {
   name: string;
@@ -22,7 +23,7 @@ interface IInputProps {
   err?: boolean;
 }
 
-export function AddComment(): ReactElement {
+export const AddComment = () => {
   const [open, setOpen] = useState<boolean>(false);
   const [isSending, setIsSending] = useState(false);
   const {
@@ -34,35 +35,34 @@ export function AddComment(): ReactElement {
   const onSubmit: SubmitHandler<IFormInput> = async (data) => {
     console.log("data: ", data);
     /*    setIsSending(true);
-
-    await fetch("/api/addComment", {
-      method: "POST",
-      body: JSON.stringify(data),
-    }).then((result) => {
-      if (result.status === 200) {
-        setIsSending(false);
-      } else {
-        console.log("error: ", result.status);
-      }
-    });*/
+        
+            await fetch("/api/addComment", {
+              method: "POST",
+              body: JSON.stringify(data),
+            }).then((result) => {
+              if (result.status === 200) {
+                setIsSending(false);
+              } else {
+                console.log("error: ", result.status);
+              }
+            });*/
   };
 
   return (
     <>
-      <span className={styles.leaveReview} onClick={() => setOpen(!open)}>
-        оставить отзыв
-      </span>
+      <LeaveReview onClick={() => setOpen(!open)}>оставить отзыв</LeaveReview>
       <Modal isOpen={open} onClose={() => setOpen(false)}>
-        <span className={styles.speech}>Пожалуйста, напишите, что вы думаете:</span>
-        <div className={styles.formContainer}>
+        <Speech>Пожалуйста, напишите, что вы думаете:</Speech>
+        <FormContainer>
           <form onSubmit={handleSubmit(onSubmit)}>
-            <div className={classNames(styles.input, errors.name ? styles.errHeight : "")}>
-              <div className={styles.inputName}>
+            {/*<div className={classNames(styles.input, errors.name ? styles.errHeight : "")}>*/}
+            <InputWrapper>
+              <InputName>
                 <div>
                   ваше имя
                   <span>&#42;</span>
                 </div>
-              </div>
+              </InputName>
               <input
                 {...register("name", { required: true, maxLength: 30 })}
                 className={styles.inputLine}
@@ -73,9 +73,10 @@ export function AddComment(): ReactElement {
                   Введите ваше имя, не превышающее 30 символов
                 </div>
               )}
-            </div>
+            </InputWrapper>
 
-            <div className={classNames(styles.input, errors.phone ? styles.errHeight : "")}>
+            {/*<div className={classNames(styles.input, errors.phone ? styles.errHeight : "")}>*/}
+            <div className={styles.input}>
               <div className={styles.inputName}>
                 <div>контактный номер телефона</div>
               </div>
@@ -90,7 +91,8 @@ export function AddComment(): ReactElement {
               )}
             </div>
 
-            <div className={classNames(styles.input, errors.email ? styles.errHeight : "")}>
+            {/*<div className={classNames(styles.input, errors.email ? styles.errHeight : "")}>*/}
+            <div className={styles.input}>
               <div className={styles.inputName}>
                 <div>ваш e-mail</div>
               </div>
@@ -102,7 +104,8 @@ export function AddComment(): ReactElement {
               {errors.email && <div className={styles.errorMessage}>Поле заполнено не верно</div>}
             </div>
 
-            <div className={classNames(styles.input, errors.text ? styles.errHeight : "")}>
+            {/*<div className={classNames(styles.input, errors.text ? styles.errHeight : "")}>*/}
+            <div className={styles.input}>
               <div className={styles.inputName}>
                 <div>
                   ваше сообщение
@@ -111,29 +114,112 @@ export function AddComment(): ReactElement {
               </div>
               <textarea
                 {...register("text", { required: true, maxLength: 20 })}
-                className={classNames(
-                  styles.textAreaStyle,
-                  errors.name || errors.phone || errors.email || errors.text
-                    ? styles.textAreaErrors
-                    : styles.textAreaNoErrors,
-                )}
+                // className={classNames(
+                //   styles.textAreaStyle,
+                //   errors.name || errors.phone || errors.email || errors.text
+                //     ? styles.textAreaErrors
+                //     : styles.textAreaNoErrors,
+                // )}
+                className={styles.textAreaStyle}
                 placeholder={"напишите что-нибудь..."}
               />
               {errors.text && <div className={styles.errorMessage}>Поле заполнено не верно</div>}
             </div>
-            <div className={styles.mark}>
-              <span>&#42;</span> - поля, обязательные для заполнения
-            </div>
+            <Mark>
+              <Star>&#42;</Star> - поля, обязательные для заполнения
+            </Mark>
             {isSending ? (
               <Loader />
             ) : (
-              <button type="submit" className={styles.submitButton}>
+              <SubmitButton type="submit">
                 <p>{"Отправить"}</p>
-              </button>
+              </SubmitButton>
             )}
           </form>
-        </div>
+        </FormContainer>
       </Modal>
     </>
   );
-}
+};
+
+const RainbowAnimation = keyframes`
+  0% {
+    background-position: 0 50%
+  }
+  50% {
+    background-position: 100% 50%
+  }
+  100% {
+    background-position: 0 50%
+  }
+`;
+
+const LeaveReview = styled.span`
+  color: ${({ theme }) => theme.systymColors.brown50};
+  font-size: 18px;
+  font-weight: bold;
+  margin-right: 50px;
+  text-transform: uppercase;
+  align-self: flex-end;
+  cursor: pointer;
+  background: linear-gradient(to right, #0c328c, #f1c91a, #f98600);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-animation: ${RainbowAnimation} 5s ease-in-out infinite;
+  animation: ${RainbowAnimation} 5s ease-in-out infinite;
+  padding: 10px 36px;
+  box-shadow: 0 2px 22px 2px rgba(43, 57, 72, 0.15);
+`;
+
+const FormContainer = styled.div`
+  width: 100%;
+  height: 100%;
+`;
+
+const InputWrapper = styled.div`
+  margin-left: 30px;
+  position: relative;
+  padding: 8px 0;
+`;
+
+const Mark = styled.div`
+  padding-left: 32px;
+  color: #736849;
+`;
+
+const Star = styled.span`
+  padding: 2px;
+  color: #ff4d00;
+  font-weight: bold;
+`;
+
+const SubmitButton = styled.button`
+  background-color: #edd6a2;
+  border: none;
+  border-radius: 4px;
+  font-size: 15px;
+  text-align: center;
+  font-weight: bold;
+  color: #fe6d02;
+  text-transform: uppercase;
+  width: 200px;
+  position: absolute;
+  bottom: 36px;
+  right: 46px;
+
+  &:hover {
+    background-color: #e8c374;
+    transition: background-color 0.2s ease-in-out;
+  }
+
+  &:focus {
+    box-shadow: 2px 4px 22px rgba(254, 109, 2, 0.6);
+  }
+`;
+
+const InputName = styled.div`
+  height: 26px;
+  display: flex;
+  align-items: center;
+`;

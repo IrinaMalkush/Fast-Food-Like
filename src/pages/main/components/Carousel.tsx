@@ -1,16 +1,17 @@
-import React, { ReactElement, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
+import styled from "styled-components";
+
+import { ICarouselItem } from "../../../api/types/ICarousel";
 import { useAppDispatch, useAppSelector } from "../../../core/hooks/Hooks";
 import { carouselSelector } from "../../../modules/carousel/CarouselSelector";
 import { fetchCarousel } from "../../../modules/carousel/FetchCarouselThank";
-import { ICarouselItem } from "../../../api/types/ICarousel";
 import { Indicators } from "./Indicators";
-import styled from "styled-components";
 
-export function Carousel(): ReactElement {
+export const Carousel = () => {
   const dispatch = useAppDispatch();
   const carouselList = useAppSelector(carouselSelector);
 
-  let [currentPhotoIndex, setCurrentIndex] = useState<number>(0);
+  const [currentPhotoIndex, setCurrentIndex] = useState<number>(0);
   const currentPhoto = carouselList.items[currentPhotoIndex];
 
   const nextPhoto = () => {
@@ -53,7 +54,7 @@ export function Carousel(): ReactElement {
       </Banner>
     </>
   );
-}
+};
 
 const Banner = styled.div`
   background-color: var(--background100);

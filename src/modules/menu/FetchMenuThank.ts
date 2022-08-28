@@ -1,6 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { FetchMenuType } from "../../api/types/FetchMenuType";
+
 import { baseUrl } from "../../api/BaseUrl";
+import { FetchMenuType } from "../../api/types/FetchMenuType";
 
 export const fetchMenu = createAsyncThunk("menu", async ({ listName }: FetchMenuType, ThunkAPI) => {
   try {
@@ -11,7 +12,7 @@ export const fetchMenu = createAsyncThunk("menu", async ({ listName }: FetchMenu
         "Content-Type": "application/json",
       },
     });
-    let data = await response.json();
+    const data = await response.json();
 
     if (response.status === 200) {
       return { ...data };
@@ -19,7 +20,7 @@ export const fetchMenu = createAsyncThunk("menu", async ({ listName }: FetchMenu
       console.log("data: ", data);
       return ThunkAPI.rejectWithValue(data);
     }
-  } catch (e) {
+  } catch (e: any) {
     console.log("Error: ", e.response.data);
     return ThunkAPI.rejectWithValue(e.response.data);
   }

@@ -1,12 +1,12 @@
 import React, { ReactElement, useEffect, useState } from "react";
-import styles from "./styles.module.css";
+import { useForm } from "react-hook-form";
+
 import { useAppDispatch, useAppSelector } from "../../core/hooks/Hooks";
 import { cartSelector } from "../../modules/cart/CartSelector";
 import { fetchGoods } from "../../modules/cart/FetchGoodsThunk";
 import { CartItem } from "./components/CartItem";
 import { CartStepper } from "./components/CartStepper";
-import classNames from "classnames";
-import { useForm } from "react-hook-form";
+import styles from "./styles.module.css";
 
 export function Cart(): ReactElement {
   const dispatch = useAppDispatch();
@@ -60,7 +60,8 @@ export function Cart(): ReactElement {
       )}
       {currentStep === 2 && (
         <div className={styles.orderContainer}>
-          <div className={classNames(styles.itemName, styles.toPay)}>
+          {/*<div className={classNames(styles.itemName, styles.toPay)}>*/}
+          <div className={styles.itemName}>
             Итого к оплате: <div className={styles.sum}>{totalSum} руб.</div>
           </div>
           <div className={styles.itemName}>Выберете способ доставки:</div>
